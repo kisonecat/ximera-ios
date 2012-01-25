@@ -19,7 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with ximera.  If not, see <http://www.gnu.org/licenses/>.
 
-
 require 'rubygems'
 require 'tmpdir'
 
@@ -55,7 +54,13 @@ Dir.mktmpdir do |dir|
       new_crop_box = "0 #{height_in_points - (y_offset + height)} #{width_in_points} #{height_in_points - y_offset}"
       `perl -pe "s/(Crop|Media)Box\\\s*\\\[(.+?)\\\]/\\\$1Box\\\[#{new_crop_box}\\\]/g;" #{dir}/#{filename} | pdftk - output #{dir}/cropped-page.pdf`
       `#{pdfdraw} -a -r #{resolution_in_points_per_inch} -o #{dir}/#{filename}.png #{dir}/cropped-page.pdf`
-      `convert -crop 256x256 +repage #{dir}/#{filename}.png #{filename.gsub(/\.pdf$/,'').gsub(/^page/,'tile')}-%03d.png`
+      `convert -crop 256x256 +repage #{dir}/#{filename}.png #{dir}/#{filename.gsub(/\.pdf$/,'').gsub(/^page/,'tile')}-%03d.png`
     end
+  end
+
+  png_filenames = Dir.new(dir).entries.select{ |x| x.match( /tile[0-9]*-[0-9]*\.png$/ ) }
+
+  for filename in png_filenames
+    `pngcrush -rem alla -rem text #{dir}/#{filename} #{filename}`
   end
 end
