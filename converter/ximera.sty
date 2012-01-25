@@ -1,26 +1,7 @@
-%%%%%%%%%%%%
-%% NOTE:
-%%
-%% We should try to have 4in or so of blank page at the end of the exercises
-%% this will let the user know that they are at the end of the list
-%%
-%%
-%%
-
 \NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX)
 [1994/12/01]% LaTeX date must be December 1994 or later
 \ProvidesPackage{ximera}[2012/01/25 v0.7]
 \ProcessOptions\relax
-%\RequirePackage{mathpazo}
-%\RequirePackage{xstring}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% in htlatex, includegraphics should replace a PDF by an SVG
-%\makeatletter
-
-%\@ifpackageloaded{tex4ht}{%
-%\renewcommand{\includegraphics}[1]{\StrSubstitute{#1}{.pdf}{.svg}[\filename]%
-%\HCode{<img src="}\StrSubstitute{\filename}{../}{}\HCode{">}}
-%}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % in htlatex, interactive should add a script environment
@@ -35,19 +16,6 @@
 %\makeatother
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 \RequirePackage{environ}
 %\RequirePackage{xkeyval}
 \RequirePackage{tikz}
@@ -56,8 +24,15 @@
 \RequirePackage{amsthm}
 %\RequirePackage{framed}
 %\RequirePackage[framed,amsthm,amsmath,thmmarks]{ntheorem}
-\RequirePackage{nopageno}
+%\RequirePackage{nopageno}
 \RequirePackage{microtype}
+
+
+
+%\RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=225in,right=.75in,top=.5in]{geometry}
+\RequirePackage[paperwidth=5.8in,left=0.25in,right=.75in,top=.5in,bottom=10in]{geometry}
+
+%\RequirePackage[paperwidth=5.8in,paperheight=7.73in,left=0.25in,right=.75in]{geometry}
 
 
 \RequirePackage{everyshi}
@@ -71,17 +46,10 @@
   \advance\pdfpageheight by -\pagegoal}
 
 
-%\RequirePackage{xcolor} I think tikz lodes this.
-
 \usetikzlibrary{shadows}
 \usetikzlibrary{shapes}
 \usetikzlibrary{decorations}
-%\theoremclass{Theorem}
 
-% \RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=2---25in,right=.75in,top=.5in]{geometry}
-\RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=225in,right=.75in,top=.5in]{geometry}
-
-%\RequirePackage[paperwidth=5.8in,paperheight=7.73in,left=0.25in,right=.75in]{geometry}
 
 %\RequirePackage{wallpaper}
 %\TileWallPaper{manuscript.jpg}

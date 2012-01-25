@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.8.1)  25 JAN 2012 18:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.8.1)  25 JAN 2012 18:33
 entering extended mode
  %&-line parsing enabled.
 **sample.tex
@@ -360,9 +360,6 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip48
 \dth@everypar=\toks32
 )
-(/usr/share/texmf-texlive/tex/latex/carlisle/nopageno.sty
-Package: nopageno 1989/01/01 no page numbers (DPC)
-)
 (/usr/share/texmf-texlive/tex/latex/microtype/microtype.sty
 Package: microtype 2009/03/27 v2.3d Micro-typography with pdfTeX (RS)
 \MT@toks=\toks33
@@ -378,6 +375,27 @@ Package microtype Info: Loading configuration file microtype.cfg.
 (/usr/share/texmf-texlive/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2009/03/27 v2.3d microtype main configuration file (RS)
 ))
+(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
+Package: geometry 2008/12/21 v4.2 Page Geometry
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count122
+\Gm@cntv=\count123
+\c@Gm@tempcnt=\count124
+\Gm@bindingoffset=\dimen158
+\Gm@wd@mp=\dimen159
+\Gm@odd@mp=\dimen160
+\Gm@even@mp=\dimen161
+\Gm@dimlist=\toks34
+
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 (/usr/share/texmf-texlive/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 )
@@ -442,36 +460,15 @@ File: pgflibraryshapes.multipart.code.tex 2008/01/15 v2.00 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen158
-\pgfdecoratedremainingdistance=\dimen159
-\pgfdecoratedinputsegmentcompleteddistance=\dimen160
-\pgfdecoratedinputsegmentremainingdistance=\dimen161
-\pgf@decorate@distancetomove=\dimen162
-\pgf@decorate@repeatstate=\count122
-\pgfdecorationsegmentamplitude=\dimen163
-\pgfdecorationsegmentlength=\dimen164
+\pgfdecoratedcompleteddistance=\dimen162
+\pgfdecoratedremainingdistance=\dimen163
+\pgfdecoratedinputsegmentcompleteddistance=\dimen164
+\pgfdecoratedinputsegmentremainingdistance=\dimen165
+\pgf@decorate@distancetomove=\dimen166
+\pgf@decorate@repeatstate=\count125
+\pgfdecorationsegmentamplitude=\dimen167
+\pgfdecorationsegmentlength=\dimen168
 ))
-(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
-Package: geometry 2008/12/21 v4.2 Page Geometry
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
-Package ifvtex Info: VTeX not detected.
-)
-\Gm@cnth=\count123
-\Gm@cntv=\count124
-\c@Gm@tempcnt=\count125
-\Gm@bindingoffset=\dimen165
-\Gm@wd@mp=\dimen166
-\Gm@odd@mp=\dimen167
-\Gm@even@mp=\dimen168
-\Gm@dimlist=\toks34
-
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 (/usr/share/texmf-texlive/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2007/08/12 v2.8 Sectioning titles
 \ttl@box=\box40
@@ -526,7 +523,6 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2008/02/29 v1.9a microtype config. file: Computer Modern Roman
  (RS)
 )
-ABD: EveryShipout initializing macros
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
 -------------------- Geometry parameters
@@ -536,9 +532,9 @@ twocolumn: --
 twoside: --
 asymmetric: --
 h-parts: 18.06749pt, 346.89622pt, 54.2025pt
-v-parts: 36.135pt, 16170.41252pt, 54.20248pt
+v-parts: 36.135pt, 36.135pt, 722.7pt
 hmarginratio: --
-vmarginratio: 2:3
+vmarginratio: --
 lines: --
 heightrounded: --
 bindingoffset: 0.0pt
@@ -549,9 +545,9 @@ includemp: --
 driver: pdftex
 -------------------- Page layout dimensions and switches
 \paperwidth  419.16621pt
-\paperheight 16260.75pt
+\paperheight 794.96999pt
 \textwidth  346.89622pt
-\textheight 16170.41252pt
+\textheight 14226.37794pt
 \oddsidemargin  -54.2025pt
 \evensidemargin -54.2025pt
 \topmargin  -73.135pt
@@ -568,35 +564,25 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-LaTeX Font Info:    Try loading font information for U+msa on input line 9.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-(/usr/share/texmf-texlive/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 9.
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-(/usr/share/texmf-texlive/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+ABD: EveryShipout initializing macros
 Chapter 1.
 
-Overfull \hbox (54.20248pt too wide) in paragraph at lines 11--11
+Overfull \hbox (54.20248pt too wide) in paragraph at lines 7--7
+ |[][]
+ []
+
+
+Overfull \hbox (54.20248pt too wide) in paragraph at lines 10--10
  |[][]
  []
 
 [1
 
-]
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Chapter 2.
 
-Overfull \hbox (54.20248pt too wide) in paragraph at lines 17--17
+Overfull \hbox (54.20248pt too wide) in paragraph at lines 63--63
  |[][]
  []
 
@@ -605,7 +591,7 @@ Overfull \hbox (54.20248pt too wide) in paragraph at lines 17--17
 ]
 Chapter 3.
 
-Overfull \hbox (54.20248pt too wide) in paragraph at lines 27--27
+Overfull \hbox (54.20248pt too wide) in paragraph at lines 169--169
  |[][]
  []
 
@@ -613,19 +599,18 @@ Overfull \hbox (54.20248pt too wide) in paragraph at lines 27--27
 
 ] (./sample.aux) ) 
 Here is how much of TeX's memory you used:
- 12071 strings out of 493848
- 221934 string characters out of 1152824
- 342126 words of memory out of 3000000
- 15056 multiletter control sequences out of 15000+50000
- 8377 words of font info for 48 fonts, out of 3000000 for 9000
+ 12006 strings out of 493848
+ 220644 string characters out of 1152824
+ 342057 words of memory out of 3000000
+ 15025 multiletter control sequences out of 15000+50000
+ 5885 words of font info for 34 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 54i,7n,75p,1672b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 54i,7n,75p,340b,607s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on sample.pdf (4 pages, 46023 bytes).
+12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on sample.pdf (3 pages, 36041 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 39 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 8301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
