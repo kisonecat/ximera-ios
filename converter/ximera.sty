@@ -56,7 +56,19 @@
 \RequirePackage{amsthm}
 %\RequirePackage{framed}
 %\RequirePackage[framed,amsthm,amsmath,thmmarks]{ntheorem}
-\usepackage{nopageno}
+\RequirePackage{nopageno}
+\RequirePackage{microtype}
+
+
+\RequirePackage{everyshi}
+\pagestyle{empty}
+\textheight500cm
+\EveryShipout{%
+  \pdfpageheight=\pagetotal
+  \advance\pdfpageheight by 4in
+  \advance\pdfpageheight by \topmargin
+  \advance\pdfpageheight by \textheight
+  \advance\pdfpageheight by -\pagegoal}
 
 
 %\RequirePackage{xcolor} I think tikz lodes this.
