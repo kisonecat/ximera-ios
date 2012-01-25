@@ -1,0 +1,241 @@
+%%%%%%%%%%%%
+%% NOTE:
+%%
+%% We should try to have 4in or so of blank page at the end of the exercises
+%% this will let the user know that they are at the end of the list
+%%
+%%
+%%
+
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX)
+[1994/12/01]% LaTeX date must be December 1994 or later
+\ProvidesPackage{ximera}[2012/01/25 v0.7]
+\ProcessOptions\relax
+%\RequirePackage{mathpazo}
+%\RequirePackage{xstring}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% in htlatex, includegraphics should replace a PDF by an SVG
+%\makeatletter
+
+%\@ifpackageloaded{tex4ht}{%
+%\renewcommand{\includegraphics}[1]{\StrSubstitute{#1}{.pdf}{.svg}[\filename]%
+%\HCode{<img src="}\StrSubstitute{\filename}{../}{}\HCode{">}}
+%}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% in htlatex, interactive should add a script environment
+
+%\@ifpackageloaded{tex4ht}{%
+%  \newcommand{\interactive}[2][]{\HCode{<script type="text/javascript"
+%      src="}#1\HCode{">}\HCode{</script>}}
+%}{
+%  \newcommand{\interactive}[2][]{#2}
+%}
+
+%\makeatother
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\RequirePackage{environ}
+%\RequirePackage{xkeyval}
+\RequirePackage{tikz}
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+%\RequirePackage{framed}
+%\RequirePackage[framed,amsthm,amsmath,thmmarks]{ntheorem}
+\usepackage{nopageno}
+
+
+%\RequirePackage{xcolor} I think tikz lodes this.
+
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations}
+%\theoremclass{Theorem}
+
+% \RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=2---25in,right=.75in,top=.5in]{geometry}
+\RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=225in,right=.75in,top=.5in]{geometry}
+
+%\RequirePackage[paperwidth=5.8in,paperheight=7.73in,left=0.25in,right=.75in]{geometry}
+
+%\RequirePackage{wallpaper}
+%\TileWallPaper{manuscript.jpg}
+%\TileWallPaper{5.24cm}{5.33cm}{manuscript.jpg}
+
+
+
+\NewEnviron{thm}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, rounded corners, inner sep=5pt,minimum width=\textwidth,
+        text=white!93!brown!93!yellow, text opacity=1,
+        draw=gray, ultra thick, draw opacity=1,
+        fill=black, fill opacity=.7] 
+      (box){%
+        \begin{minipage}{.95\textwidth}
+          \textbf{Theorem}\qquad\color{white!93!brown!93!yellow}\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+\NewEnviron{dfn}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, rounded corners, inner sep=5pt,minimum width=\textwidth,
+        text=white!93!brown!93!yellow, text opacity=1,
+        draw=gray, ultra thick, draw opacity=1,
+        fill=black, fill opacity=.7] 
+      (box){%
+        \begin{minipage}{.95\textwidth}
+          \textbf{Definition}\qquad\color{white!93!brown!93!yellow}\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+\NewEnviron{war}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, rounded corners, inner sep=5pt,minimum width=\textwidth,
+        text=black, text opacity=1,
+        fill=red, fill opacity=.1] 
+      (box){%
+        \begin{minipage}{.95\textwidth}
+          \textbf{WARNING}\qquad\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+
+\NewEnviron{ques}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, rounded corners, inner sep=5pt,minimum width=\textwidth,
+        text=black, text opacity=1,
+        fill=green!50!blue, fill opacity=.15] 
+      (box){%
+        \begin{minipage}{.95\textwidth}
+          \textbf{Question}\qquad\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+
+\NewEnviron{eg}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, rounded corners, inner sep=5pt,minimum width=\textwidth,
+        text=black, text opacity=1,
+        fill=white, fill opacity=.2] 
+      (box){%
+        \begin{minipage}{.95\textwidth}
+          \textbf{Example}\qquad\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+
+
+
+\NewEnviron{bquote}{%
+  \begin{center}
+    \begin{tikzpicture}
+      \node[rectangle, inner sep=5pt,
+        text=black, text opacity=1] 
+      (box){%
+        \begin{minipage}{.75\textwidth}
+          \textit\BODY
+      \end{minipage}};
+    \end{tikzpicture}
+  \end{center}
+}
+
+
+
+
+
+\RequirePackage[explicit]{titlesec}
+
+\newcommand*\chapterlabel{}
+\titleformat{\chapter}
+ {\gdef\chapterlabel{}
+   \normalfont\huge\bfseries}
+  {\gdef\chapterlabel{Chapter \thechapter \\}}{0pt}
+      {\begin{tikzpicture}
+          \node[anchor=west,rectangle,inner sep=7pt,minimum width=\paperwidth, text width=.8\paperwidth]
+             % {\chapterlabel \\ \vspace{10pt} \Huge #1};
+{\chapterlabel  \vspace{10pt} \Huge #1};
+       \end{tikzpicture}
+  }
+\titlespacing*{\chapter}{-0.25in}{50pt}{0pt} %%!! SHOULD BE SET AS MARGIN!
+
+
+
+
+
+\newcommand*\sectionlabel{}
+\titleformat{\section}
+ {\gdef\sectionlabel{}
+   \normalfont\Large\bfseries}
+  {\gdef\sectionlabel{\thesection\quad}}{0pt}
+      {\begin{tikzpicture}
+          \node[anchor=west,rectangle,inner sep=7pt,minimum width=\paperwidth, text width=.8\paperwidth,
+             fill=black, opacity=0.7, text opacity=1.0]
+              {\color{white!93!brown!93!yellow}\sectionlabel#1};
+       \end{tikzpicture}
+  }
+\titlespacing*{\section}{-0.25in}{50pt}{0pt} %%!! SHOULD BE SET AS MARGIN!
+
+
+\newcommand*\subsectionlabel{}
+\titleformat{\subsection}
+ {\gdef\subsectionlabel{}
+   \normalfont\large\bfseries}
+  {\gdef\subsectionlabel{\thesubsection\quad}}{0pt}
+      {\begin{tikzpicture}
+          \node[anchor=west,rectangle,inner sep=7pt,minimum width=\paperwidth, text width=.8\paperwidth]
+              {\subsectionlabel#1};
+       \end{tikzpicture}
+  }
+\titlespacing*{\subsection}{-0.25in}{40pt}{-15pt} %%!! SHOULD BE SET AS MARGIN!
+
+
+
+
+
+
+\newcommand\problems{
+\begingroup
+\titleformat{\subsection}[display]
+  {\normalfont\large\filright\bfseries}{\Huge}{0pt}
+  {\hspace*{-1.7cm}##1\vskip-6.5ex}[\hspace*{-0.25in}\rlap{\rule{.5in}{4ex}\rule{\paperwidth}{2pt}}]
+\titlespacing*{\subsection}{0pt}{60pt}{10pt}
+  \subsection*{\hspace{1in} Problems for Section~\thesection}
+\endgroup
+}
+
+
+
+
+
+
+
+
+\endinput
