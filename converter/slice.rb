@@ -34,6 +34,8 @@ resolution_in_points_per_inch = desired_width_in_pixels / width_in_inches
 
 input_directory = Dir.pwd
 
+pdfdraw = "mupdf/build/debug/pdfdraw"
+
 Dir.mktmpdir do |dir|
   `pdftk #{input_file} burst output #{dir}/page%03d.pdf`
 
@@ -41,7 +43,7 @@ Dir.mktmpdir do |dir|
 
   for filename in pdf_filenames
     crop_resolution = 10
-    `./pdfdraw -r #{crop_resolution} -o #{dir}/#{filename}.png #{dir}/#{filename}`
+    `#{pdfdraw} -r #{crop_resolution} -o #{dir}/#{filename}.png #{dir}/#{filename}`
     verbose = `convert -verbose -trim #{dir}/#{filename}.png /dev/null`
     if verbose.match( /=>([0-9]+)x([0-9]+) ([0-9]+)x([0-9]+)([+-][0-9]+)([+-][0-9]+)/ )
       height = ($2.to_i) * 72 / crop_resolution
@@ -52,7 +54,7 @@ Dir.mktmpdir do |dir|
       y_offset = y_offset - margin
       new_crop_box = "0 #{height_in_points - (y_offset + height)} #{width_in_points} #{height_in_points - y_offset}"
       `perl -pe "s/(Crop|Media)Box\\\s*\\\[(.+?)\\\]/\\\$1Box\\\[#{new_crop_box}\\\]/g;" #{dir}/#{filename} | pdftk - output #{dir}/cropped-page.pdf`
-      `./pdfdraw -a -r #{resolution_in_points_per_inch} -o #{dir}/#{filename}.png #{dir}/cropped-page.pdf`
+      `#{pdfdraw} -a -r #{resolution_in_points_per_inch} -o #{dir}/#{filename}.png #{dir}/cropped-page.pdf`
       `convert -crop 256x256 +repage #{dir}/#{filename}.png #{filename.gsub(/\.pdf$/,'').gsub(/^page/,'tile')}-%03d.png`
     end
   end
