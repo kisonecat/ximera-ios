@@ -1,6 +1,9 @@
 \documentclass[12pt]{report}
 \usepackage{ximera}
 
+\newcommand{\mat}{\mathsf}
+\renewcommand{\vec}{\mathbf}
+
 
 \begin{document}
 
@@ -14,26 +17,62 @@ hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
 nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis
 natoque penatibus et magnis dis parturient montes, nascetur ridiculus
 mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non
-turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum
-accumsan nisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing
-elit. Donec hendrerit tempor tellus. Donec pretium posuere
-tellus. Proin quam nisi, tincidunt et, mattis eget, convallis nec,
-purus. Cum sociis natoque penatibus et magnis dis parturient montes,
-nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam
-tristique diam non turpis. Cras placerat accumsan nulla. Nullam
-rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec
-pretium posuere tellus. Proin quam nisi, tincidunt et, mattis eget,
-convallis nec, purus. Cum sociis natoque penatibus et magnis dis
+turpis. Cras placerat accumsan nulla. 
+
+\begin{ques} 
+Nullam rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit
+amet, consectetuer adipiscing elit. Donec hendrerit tempor
+tellus. 
+\end{ques}
+
+Donec pretium posuere tellus. Proin quam nisi, tincidunt et, mattis
+eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis
 parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae
-dolor. Nullam tristique diam non turpis. Cras placerat accumsan
+dolor. 
+
+\begin{dfn}\index{translation}
+A \textbf{translation}, denoted by $\mat{T}_{(u,v)}$, is a function
+that moves every point a given distance $u$ in the $x$-direction and a
+given distance $v$ in the $y$-direction. We will use the following
+type of matrix to represent translations:
+\[
+\mat{T}_{(u,v)} = 
+\begin{bmatrix}
+1 & 0 & u \\ 
+0 & 1 & v \\
+0 & 0 & 1
+\end{bmatrix}
+\]
+\end{dfn}
+
+\[
+\includegraphics{transIdeaEg.pdf}
+\]
+
+
+
+Nullam tristique diam non turpis. Cras placerat accumsan
 nulla. Nullam rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor
 sit amet, consectetuer adipiscing elit. Donec hendrerit tempor
 tellus. Donec pretium posuere tellus. Proin quam nisi, tincidunt et,
 mattis eget, convallis nec, purus. Cum sociis natoque penatibus et
 magnis dis parturient montes, nascetur ridiculus mus. Nulla
-posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras
+posuere. 
+
+
+\begin{eg} 
+Donec vitae dolor. Nullam tristique diam non turpis. Cras
 placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisi.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
+nisi, tincidunt et, mattis eget, convallis nec, purus. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+mus. 
+\end{eg}
+
+Nulla posuere. Donec vitae dolor. Nullam tristique diam non
+turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum
+accumsan nisi.
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
 hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
@@ -89,22 +128,15 @@ magnis dis parturient montes, nascetur ridiculus mus. Nulla
 posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras
 placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisi.
 
+
+\begin{war} 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
-nisl, tincidunt et, mattis eget, convallis nec, purus. Cum sociis
-natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non
-turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum
-accumsan nisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing
-elit. Donec hendrerit tempor tellus. Donec pretium posuere
-tellus. Proin quam nisi, tincidunt et, mattis eget, convallis nec,
-purus. Cum sociis natoque penatibus et magnis dis parturient montes,
-nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam
-tristique diam non turpis. Cras placerat accumsan nulla. Nullam
-rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec
-pretium posuere tellus. Proin quam nisi, tincidunt et, mattis eget,
-convallis nec, purus. Cum sociis natoque penatibus et magnis dis
+hendrerit tempor tellus.
+\end{war}
+
+
+Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis
+eget, convallis nec, purus. Cum sociis natoque penatibus et magnis dis
 parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae
 dolor. Nullam tristique diam non turpis. Cras placerat accumsan
 nulla. Nullam rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor
@@ -114,6 +146,19 @@ mattis eget, convallis nec, purus. Cum sociis natoque penatibus et
 magnis dis parturient montes, nascetur ridiculus mus. Nulla
 posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras
 placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisi.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
+nisi, tincidunt et, mattis eget, convallis nec, purus. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+mus. Nulla posuere. Donec vitae dolor. Nullam tristique diam non
+turpis. Cras placerat accumsan nulla. Nullam rutrum. Nam vestibulum
+accumsan nisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing
+elit. Donec hendrerit tempor tellus. Donec pretium posuere
+tellus. Proin quam nisi, tincidunt et, mattis eget, convallis nec,
+purus. Cum sociis natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam
+tristique diam non turpis. Cras placerat accumsan nulla. Nullam
+rutrum. Nam vestibulum accumsan nisi.
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
 hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
@@ -183,7 +228,12 @@ nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam
 tristique diam non turpis. Cras placerat accumsan nulla. Nullam
 rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit amet,
 consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec
-pretium posuere tellus. Proin quam nisi, tincidunt et, mattis eget,
+pretium posuere tellus. 
+
+\section{I don't know why\dots}
+
+
+Proin quam nisi, tincidunt et, mattis eget,
 convallis nec, purus. Cum sociis natoque penatibus et magnis dis
 parturient montes, nascetur ridiculus mus. Nulla posuere. Donec vitae
 dolor. Nullam tristique diam non turpis. Cras placerat accumsan
@@ -194,6 +244,8 @@ mattis eget, convallis nec, purus. Cum sociis natoque penatibus et
 magnis dis parturient montes, nascetur ridiculus mus. Nulla
 posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras
 placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisi.
+
+\subsection{You say goodbye}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
 hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam
@@ -207,7 +259,11 @@ tellus. Proin quam nisi, tincidunt et, mattis eget, convallis nec,
 purus. Cum sociis natoque penatibus et magnis dis parturient montes,
 nascetur ridiculus mus. Nulla posuere. Donec vitae dolor. Nullam
 tristique diam non turpis. Cras placerat accumsan nulla. Nullam
-rutrum. Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit amet,
+rutrum. 
+
+\subsection{I say hello}
+
+Nam vestibulum accumsan nisi.  Lorem ipsum dolor sit amet,
 consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec
 pretium posuere tellus. Proin quam nisi, tincidunt et, mattis eget,
 convallis nec, purus. Cum sociis natoque penatibus et magnis dis
@@ -220,6 +276,23 @@ mattis eget, convallis nec, purus. Cum sociis natoque penatibus et
 magnis dis parturient montes, nascetur ridiculus mus. Nulla
 posuere. Donec vitae dolor. Nullam tristique diam non turpis. Cras
 placerat accumsan nulla. Nullam rutrum. Nam vestibulum accumsan nisi.
+
+\problems
+
+\begin{enumerate}
+\item How do you compute the distance between two points $\vec{p}$ and
+  $\vec{q}$ in the plane?
+\item Use algebra to explain why: 
+\[
+d(\vec{p},\vec q) = d(\vec{p}-\vec q,\vec o) = d(\vec o,\vec{p}-\vec q)
+\]
+where $\vec o = (0,0)$.
+\item What is an isometry?
+\item What is a translation?
+\item What is a rotation?
+\item What is a reflection?
+\end{enumerate}
+
 
 \end{document}
 
