@@ -12,12 +12,13 @@
 \newcommand{\mat}{\mathsf}
 \renewcommand{\vec}{\mathbf}
 
-\newenvironment{interactive}[1]{}{}
+\makeatletter
+
+\makeatother
 
 \begin{document}
 
 \chapter{Let's begin with hello}
-
 
 \section{We just met}
 
@@ -54,12 +55,11 @@ type of matrix to represent translations:
 \]
 \end{dfn}
 
-\begin{interactive}{llama.js}
-\[
+\begin{interactive}{llama.html}
+\begin{center}
 \includegraphics{transIdeaEg.pdf}
-\]
+\end{center}
 \end{interactive}
-
 
 
 Nullam tristique diam non turpis. Cras placerat accumsan
