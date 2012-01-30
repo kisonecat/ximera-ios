@@ -168,6 +168,40 @@
     [nextSectionViewController setSection: nextSection];
 }
 
+- (void)pageDown:(id)sender
+{
+    CGFloat previousPageOrigin = 0;
+    CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
+    CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.25];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [self.view setFrame: CGRectMake( nextPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+    
+    [UIView commitAnimations];
+}
+
+- (void)pageUp:(id)sender
+{
+    CGFloat previousPageOrigin = 0;
+    CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
+    CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.25];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
+                                    self.view.frame.size.width, self.view.frame.size.height )];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+    
+    [UIView commitAnimations];
+}
+
 #pragma mark - View lifecycle
 
 /*

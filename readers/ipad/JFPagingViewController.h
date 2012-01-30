@@ -22,5 +22,7 @@
 @property (nonatomic, retain) IBOutlet JFSectionViewController *nextSectionViewController; 
 @property int currentSection; 
 
+- (IBAction)pageDown:(id)sender;
+- (IBAction)pageUp:(id)sender;
 
 @end

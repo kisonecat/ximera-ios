@@ -43,16 +43,26 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
 {
-    UIImage *image = [UIImage imageNamed: @"page001.png"];
-    CALayer *layer = [CALayer layer];
-    layer.contents = (id)image.CGImage;
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+
+    CGFloat position = 0;
+    CGFloat width = 0;
+    for( int i=0; i<sectionCount; i++ ) {
+        NSString *filename = [NSString stringWithFormat: @"page%03d.png", i + 1];
+        UIImage *image = [UIImage imageNamed:filename];
+        CALayer *layer = [CALayer layer];
+        layer.contents = (id)image.CGImage;
     
-    CGFloat width = self.view.frame.size.width;
-    CGFloat height = width * image.size.height / image.size.width;
-    layer.frame = CGRectMake(0,0,width,height);
-    [self.view.layer addSublayer:layer];
-    self.view.frame = layer.frame;
-    self.scrollView.contentSize = layer.frame.size;
+        width = self.view.frame.size.width;
+        CGFloat height = width * image.size.height / image.size.width;
+        layer.frame = CGRectMake(0,position,width,height);
+        position += height;
+        [self.view.layer addSublayer:layer];
+    }    
+        
+    self.view.frame = CGRectMake(0,0,width,position);
+    self.scrollView.contentSize = self.view.frame.size;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
