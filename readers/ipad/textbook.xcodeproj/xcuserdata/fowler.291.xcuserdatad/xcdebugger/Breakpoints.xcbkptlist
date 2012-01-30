@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/JFSectionViewController.m"
-         timestampString = "349622210.237648"
+         timestampString = "349639280.50498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
          landmarkName = "-sizeContent"
          landmarkType = "5">
       </FileBreakpoint>

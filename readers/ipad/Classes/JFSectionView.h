@@ -10,7 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface JFSectionView : UIView {
-    
+    int section;
 }
+
+@property int section;
 
 @end

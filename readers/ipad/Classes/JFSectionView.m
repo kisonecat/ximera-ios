@@ -11,6 +11,8 @@
 
 @implementation JFSectionView
 
+@synthesize section;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -27,9 +29,8 @@
 
 - (UIImage*)tileAtCol:(int)col row:(int)row
 {
-    int section = 1;
     int index = row * 3 + col;
-    NSString* filename = [NSString stringWithFormat: @"tile%03d-%03d.png", section, index];
+    NSString* filename = [NSString stringWithFormat: @"tile%03d-%03d.png", section + 1, index];
     
     /* There are some questions about imageNamed caching the images in memory, which might end up causing our app to crash when it can't free memory... */
     UIImage * aTile = [UIImage imageNamed:filename];
