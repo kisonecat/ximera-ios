@@ -22,11 +22,9 @@
 @implementation textbookAppDelegate
 
 @synthesize window;
-@synthesize contView;
-@synthesize navView;
 @synthesize left;
 @synthesize right;
-@synthesize contentViewController, navViewController;
+@synthesize sectionViewController, navigatorViewController;
 @synthesize bookSpine;
 
 #pragma mark -
@@ -43,6 +41,8 @@
 			((UIScrollView *)subview).bounces = NO;
 		}
 	}*/
+    
+    currentSection = 1;
 	
     return YES;
 }

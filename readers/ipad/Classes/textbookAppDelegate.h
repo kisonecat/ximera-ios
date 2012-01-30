@@ -21,31 +21,28 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@class JFContViewController;
-@class JKNavViewController;
+@class JFSectionViewController;
+@class JFNavigatorViewController;
 @class JFBookSpine;
 
 @interface textbookAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-	UIScrollView *contView;
-	UIScrollView *navView;
 	UIBarButtonItem *left;
 	UIBarButtonItem *right;
 	
-	JFContViewController * contentViewController;
-	JKNavViewController * navViewController;
-	JFBookSpine * bookSpine;
+	IBOutlet JFSectionViewController *sectionViewController;
+	IBOutlet JFNavigatorViewController *navigatorViewController;
+	IBOutlet JFBookSpine *bookSpine;
+    
+    int currentSection;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UIScrollView *contView;
-@property (nonatomic, retain) IBOutlet UIScrollView *navView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *left;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *right;
 
-@property (nonatomic, retain) IBOutlet JFContViewController * contentViewController;
-@property (nonatomic, retain) IBOutlet JKNavViewController * navViewController;
-
-@property (nonatomic, retain) IBOutlet JFBookSpine * bookSpine;
+@property (nonatomic, retain) IBOutlet JFSectionViewController *sectionViewController;
+@property (nonatomic, retain) IBOutlet JFNavigatorViewController *navigatorViewController;
+@property (nonatomic, retain) IBOutlet JFBookSpine *bookSpine;
 
 @end
