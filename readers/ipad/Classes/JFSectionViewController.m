@@ -59,14 +59,39 @@
 
 - (void)setSection:(int)aSection
 {
+    // Remove any old webviews
+    NSArray *subviews = [[self.view subviews] copy];
+    for(UIView *subview in subviews) {
+        if ([subview isKindOfClass:[UIWebView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
+    
     currentSection = aSection;
     ((JFSectionView*)self.view).section = currentSection;
+
+    // Recompute the size of the section
     [self sizeContent];
     
+    // Clear the tiled image cache
     self.view.layer.contents = nil; // turns the CATiledLayer into a CALayer
     [self.view setNeedsDisplay]; // "magically" restores the layer to a CATiledLayer?
+    
+    // Create any webviews that the user requested
+    CGRect webFrame = CGRectMake(50.0, 50.0 * currentSection, 400, 500.0);
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:webFrame];
+    [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsHorizontalScrollIndicator:NO];
+    [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsVerticalScrollIndicator:NO]; 
+    [webView setBackgroundColor:[UIColor clearColor]];
+    [webView setOpaque:NO];
+
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"interactive" ofType:@"html"] isDirectory:NO];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    [self.view addSubview:webView]; 
+    [webView release];
 }
 
+// #include "pagesetup.h"
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
