@@ -33,8 +33,6 @@
 	IBOutlet JFSectionViewController *sectionViewController;
 	IBOutlet JFNavigatorViewController *navigatorViewController;
 	IBOutlet JFBookSpine *bookSpine;
-    
-    int currentSection;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -44,5 +42,7 @@
 @property (nonatomic, retain) IBOutlet JFSectionViewController *sectionViewController;
 @property (nonatomic, retain) IBOutlet JFNavigatorViewController *navigatorViewController;
 @property (nonatomic, retain) IBOutlet JFBookSpine *bookSpine;
+
+- (int)sectionCount;
 
 @end

@@ -62,7 +62,9 @@
     currentSection = aSection;
     ((JFSectionView*)self.view).section = currentSection;
     [self sizeContent];
-    [self.view setNeedsDisplay];
+    
+    self.view.layer.contents = nil; // turns the CATiledLayer into a CALayer
+    [self.view setNeedsDisplay]; // "magically" restores the layer to a CATiledLayer?
 }
 
 

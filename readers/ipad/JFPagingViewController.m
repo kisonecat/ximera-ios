@@ -7,7 +7,7 @@
 //
 
 #import "JFPagingViewController.h"
-
+#import "textbookAppDelegate.h"
 
 @implementation JFPagingViewController
 
@@ -86,15 +86,16 @@
     }
 
     // Now we need to tell the section view controllers to update themselves!
-    
-    const int sectionCount = 3;
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
     
     int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
     int nextSection = (currentSection + 1) % sectionCount;
     
     [previousSectionViewController setSection: previousSection];
     [nextSectionViewController setSection: nextSection];
-
+    [self.view setNeedsDisplay];
+    
     return;
 }
 
@@ -156,7 +157,8 @@
 
 - (void)setupSectionViews
 {
-    const int sectionCount = 3;
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
  
     int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
     int nextSection = (currentSection + 1) % sectionCount;
@@ -185,7 +187,7 @@
     [pan addTarget:self action:@selector(move:)];
     [self.view addGestureRecognizer: pan];
     
-    self.currentSection = 1;
+    self.currentSection = 0;
     [self setupSectionViews];
 }
 
@@ -199,7 +201,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+	return NO;
 }
 
 @end
