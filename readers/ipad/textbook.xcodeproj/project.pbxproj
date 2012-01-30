@@ -122,15 +122,6 @@
 		218B71BB14D3329700CCE2F7 /* tile003-027.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714314D3329700CCE2F7 /* tile003-027.png */; };
 		218B71BC14D3329700CCE2F7 /* tile003-028.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714414D3329700CCE2F7 /* tile003-028.png */; };
 		218B71BD14D3329700CCE2F7 /* tile003-029.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714514D3329700CCE2F7 /* tile003-029.png */; };
-		218B71BE14D3329700CCE2F7 /* tile003-030.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714614D3329700CCE2F7 /* tile003-030.png */; };
-		218B71BF14D3329700CCE2F7 /* tile003-031.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714714D3329700CCE2F7 /* tile003-031.png */; };
-		218B71C014D3329700CCE2F7 /* tile003-032.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714814D3329700CCE2F7 /* tile003-032.png */; };
-		218B71C114D3329700CCE2F7 /* tile003-033.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714914D3329700CCE2F7 /* tile003-033.png */; };
-		218B71C214D3329700CCE2F7 /* tile003-034.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714A14D3329700CCE2F7 /* tile003-034.png */; };
-		218B71C314D3329700CCE2F7 /* tile003-035.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714B14D3329700CCE2F7 /* tile003-035.png */; };
-		218B71C414D3329700CCE2F7 /* tile003-036.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714C14D3329700CCE2F7 /* tile003-036.png */; };
-		218B71C514D3329700CCE2F7 /* tile003-037.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714D14D3329700CCE2F7 /* tile003-037.png */; };
-		218B71C614D3329700CCE2F7 /* tile003-038.png in Resources */ = {isa = PBXBuildFile; fileRef = 218B714E14D3329700CCE2F7 /* tile003-038.png */; };
 		218B71CC14D334A400CCE2F7 /* JFSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71CB14D334A400CCE2F7 /* JFSectionView.m */; };
 		218B71D014D33A4200CCE2F7 /* JFSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71CE14D33A4200CCE2F7 /* JFSectionViewController.m */; };
 		218B71D414D3449300CCE2F7 /* JFNavigatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71D314D3449300CCE2F7 /* JFNavigatorViewController.m */; };
@@ -272,15 +263,6 @@
 		218B714314D3329700CCE2F7 /* tile003-027.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-027.png"; sourceTree = "<group>"; };
 		218B714414D3329700CCE2F7 /* tile003-028.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-028.png"; sourceTree = "<group>"; };
 		218B714514D3329700CCE2F7 /* tile003-029.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-029.png"; sourceTree = "<group>"; };
-		218B714614D3329700CCE2F7 /* tile003-030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-030.png"; sourceTree = "<group>"; };
-		218B714714D3329700CCE2F7 /* tile003-031.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-031.png"; sourceTree = "<group>"; };
-		218B714814D3329700CCE2F7 /* tile003-032.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-032.png"; sourceTree = "<group>"; };
-		218B714914D3329700CCE2F7 /* tile003-033.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-033.png"; sourceTree = "<group>"; };
-		218B714A14D3329700CCE2F7 /* tile003-034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-034.png"; sourceTree = "<group>"; };
-		218B714B14D3329700CCE2F7 /* tile003-035.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-035.png"; sourceTree = "<group>"; };
-		218B714C14D3329700CCE2F7 /* tile003-036.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-036.png"; sourceTree = "<group>"; };
-		218B714D14D3329700CCE2F7 /* tile003-037.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-037.png"; sourceTree = "<group>"; };
-		218B714E14D3329700CCE2F7 /* tile003-038.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile003-038.png"; sourceTree = "<group>"; };
 		218B71CA14D334A300CCE2F7 /* JFSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFSectionView.h; sourceTree = "<group>"; };
 		218B71CB14D334A400CCE2F7 /* JFSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFSectionView.m; sourceTree = "<group>"; };
 		218B71CD14D33A4200CCE2F7 /* JFSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFSectionViewController.h; sourceTree = "<group>"; };
@@ -527,15 +509,6 @@
 				218B714314D3329700CCE2F7 /* tile003-027.png */,
 				218B714414D3329700CCE2F7 /* tile003-028.png */,
 				218B714514D3329700CCE2F7 /* tile003-029.png */,
-				218B714614D3329700CCE2F7 /* tile003-030.png */,
-				218B714714D3329700CCE2F7 /* tile003-031.png */,
-				218B714814D3329700CCE2F7 /* tile003-032.png */,
-				218B714914D3329700CCE2F7 /* tile003-033.png */,
-				218B714A14D3329700CCE2F7 /* tile003-034.png */,
-				218B714B14D3329700CCE2F7 /* tile003-035.png */,
-				218B714C14D3329700CCE2F7 /* tile003-036.png */,
-				218B714D14D3329700CCE2F7 /* tile003-037.png */,
-				218B714E14D3329700CCE2F7 /* tile003-038.png */,
 			);
 			path = tiles;
 			sourceTree = "<group>";
@@ -742,15 +715,6 @@
 				218B71BB14D3329700CCE2F7 /* tile003-027.png in Resources */,
 				218B71BC14D3329700CCE2F7 /* tile003-028.png in Resources */,
 				218B71BD14D3329700CCE2F7 /* tile003-029.png in Resources */,
-				218B71BE14D3329700CCE2F7 /* tile003-030.png in Resources */,
-				218B71BF14D3329700CCE2F7 /* tile003-031.png in Resources */,
-				218B71C014D3329700CCE2F7 /* tile003-032.png in Resources */,
-				218B71C114D3329700CCE2F7 /* tile003-033.png in Resources */,
-				218B71C214D3329700CCE2F7 /* tile003-034.png in Resources */,
-				218B71C314D3329700CCE2F7 /* tile003-035.png in Resources */,
-				218B71C414D3329700CCE2F7 /* tile003-036.png in Resources */,
-				218B71C514D3329700CCE2F7 /* tile003-037.png in Resources */,
-				218B71C614D3329700CCE2F7 /* tile003-038.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
