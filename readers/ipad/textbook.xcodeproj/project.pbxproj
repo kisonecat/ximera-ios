@@ -125,6 +125,7 @@
 		218B71CC14D334A400CCE2F7 /* JFSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71CB14D334A400CCE2F7 /* JFSectionView.m */; };
 		218B71D014D33A4200CCE2F7 /* JFSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71CE14D33A4200CCE2F7 /* JFSectionViewController.m */; };
 		218B71D414D3449300CCE2F7 /* JFNavigatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71D314D3449300CCE2F7 /* JFNavigatorViewController.m */; };
+		218B71D714D7022A00CCE2F7 /* JFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B71D614D7022A00CCE2F7 /* JFPagingViewController.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		3809343912FF3B3300EB0894 /* JFMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3809343812FF3B3300EB0894 /* JFMainWindow.m */; };
 		380934A512FF441600EB0894 /* JFBookSpine.m in Sources */ = {isa = PBXBuildFile; fileRef = 380934A412FF441600EB0894 /* JFBookSpine.m */; };
@@ -269,6 +270,8 @@
 		218B71CE14D33A4200CCE2F7 /* JFSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFSectionViewController.m; sourceTree = "<group>"; };
 		218B71D214D3449200CCE2F7 /* JFNavigatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFNavigatorViewController.h; sourceTree = "<group>"; };
 		218B71D314D3449300CCE2F7 /* JFNavigatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFNavigatorViewController.m; sourceTree = "<group>"; };
+		218B71D514D7022A00CCE2F7 /* JFPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JFPagingViewController.h; path = ../JFPagingViewController.h; sourceTree = "<group>"; };
+		218B71D614D7022A00CCE2F7 /* JFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JFPagingViewController.m; path = ../JFPagingViewController.m; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* textbook_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textbook_Prefix.pch; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 				218B71CE14D33A4200CCE2F7 /* JFSectionViewController.m */,
 				218B71CA14D334A300CCE2F7 /* JFSectionView.h */,
 				218B71CB14D334A400CCE2F7 /* JFSectionView.m */,
+				218B71D514D7022A00CCE2F7 /* JFPagingViewController.h */,
+				218B71D614D7022A00CCE2F7 /* JFPagingViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				218B71CC14D334A400CCE2F7 /* JFSectionView.m in Sources */,
 				218B71D014D33A4200CCE2F7 /* JFSectionViewController.m in Sources */,
 				218B71D414D3449300CCE2F7 /* JFNavigatorViewController.m in Sources */,
+				218B71D714D7022A00CCE2F7 /* JFPagingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

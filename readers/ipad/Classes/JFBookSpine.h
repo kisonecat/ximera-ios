@@ -22,12 +22,8 @@
 
 @interface JFBookSpine : UIView {
 	IBOutlet UIScrollView *navigationScrollView;
-    BOOL navigationViewOnScreen;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView * navigationScrollView;
-
-- (void)openNavigationView;
-- (void)closeNavigationView;
 
 @end

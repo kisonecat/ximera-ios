@@ -7,6 +7,7 @@
 //
 
 #import "JFSectionViewController.h"
+#import "JFSectionView.h"
 #import "JFNavigatorViewController.h"
 #import "textbookAppDelegate.h"
 
@@ -40,7 +41,7 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *dirContents = [fm contentsOfDirectoryAtPath:bundleRoot error:nil];
     NSPredicate *fltr = [NSPredicate predicateWithFormat:
-                         [NSString stringWithFormat:@"self ENDSWITH '.png' AND self BEGINSWITH 'tile%03d'", 1]];
+                         [NSString stringWithFormat:@"self ENDSWITH '.png' AND self BEGINSWITH 'tile%03d'", (currentSection+1)]];
     NSArray *onlyTiles = [dirContents filteredArrayUsingPredicate:fltr];
     
     CGSize world;
@@ -51,24 +52,45 @@
                                              CGRectGetMaxY(self.content.frame));
 }
 
+- (int)currentSection
+{
+    return currentSection;
+}
+
+- (void)setSection:(int)aSection
+{
+    currentSection = aSection;
+    ((JFSectionView*)self.view).section = currentSection;
+    [self sizeContent];
+    [self.view setNeedsDisplay];
+}
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    isDragging = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    isDragging = NO;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView
 {
-    [scrollView setContentOffset: CGPointMake(0, scrollView.contentOffset.y)]; // turn off left/right scrolling
-
-    /*
-	if (beingScrolling == YES)
-		return;
+    if (isDragging != YES)
+        return;
     
-    beingScrolling = YES;
-    */
+    [scrollView setContentOffset: CGPointMake(0, scrollView.contentOffset.y)]; // turn off left/right scrolling
     
     textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
 	    
     UIScrollView *navigatorScrollView = delegate.navigatorViewController.scrollView;
-    CGPoint contentOffset = CGPointMake(0, [scrollView contentOffset].y * ([navigatorScrollView contentSize].height - [navigatorScrollView bounds].size.height) / ([scrollView contentSize].height - [delegate.sectionViewController.scrollView bounds].size.height));
-    [navigatorScrollView setContentOffset:contentOffset animated: NO];
     
-    // beingScrolling = NO;
+    CGFloat sectionScrolledFraction = (scrollView.contentOffset.y) / (scrollView.contentSize.height - scrollView.bounds.size.height);
+    CGFloat navigatorScrolledDistance = sectionScrolledFraction * (navigatorScrollView.contentSize.height - navigatorScrollView.bounds.size.height);
+    CGPoint contentOffset = CGPointMake(0, navigatorScrolledDistance);
+    [navigatorScrollView setContentOffset:contentOffset animated: NO];
     
 #if 0
     // If we bounce past the bottom, go to the next section
@@ -99,7 +121,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self sizeContent];
 }
 
 - (void)viewDidUnload

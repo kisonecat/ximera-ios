@@ -7,6 +7,8 @@
 //
 
 #import "JFNavigatorViewController.h"
+#import "JFSectionViewController.h"
+#import "textbookAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -49,6 +51,8 @@
     CGFloat height = width * image.size.height / image.size.width;
     layer.frame = CGRectMake(0,0,width,height);
     [self.view.layer addSublayer:layer];
+    self.view.frame = layer.frame;
+    self.scrollView.contentSize = layer.frame.size;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -70,5 +74,36 @@
     // Return YES for supported orientations
 	return YES;
 }
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    isDragging = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    isDragging = NO;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
+{
+    if (isDragging != YES)
+        return;
+
+    // this thing is causing a stack overflow!
+    /*
+    [aScrollView setContentOffset: CGPointMake(0, aScrollView.contentOffset.y)]; // turn off left/right scrolling
+    
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    
+    UIScrollView *sectionScrollView = delegate.sectionViewController.scrollView;
+   
+    CGFloat navigatorScrolledFraction = (aScrollView.contentOffset.y) / (aScrollView.contentSize.height - aScrollView.bounds.size.height);
+    CGFloat sectionScrolledDistance = navigatorScrolledFraction * (sectionScrollView.contentSize.height - sectionScrollView.bounds.size.height);
+    CGPoint contentOffset = CGPointMake(0, sectionScrolledDistance);
+    [sectionScrollView setContentOffset:contentOffset animated: NO];
+     */
+}
+
 
 @end

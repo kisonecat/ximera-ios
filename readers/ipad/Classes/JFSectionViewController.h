@@ -12,9 +12,14 @@
 @interface JFSectionViewController : UIViewController  <UIScrollViewDelegate> {
     UIView*			content;
     UIScrollView * scrollView;
+    BOOL isDragging;
+    int currentSection;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView * scrollView;
 @property (nonatomic, retain) IBOutlet UIView* content;
+
+- (int)currentSection;
+- (void)setSection:(int)aSection;
 
 @end

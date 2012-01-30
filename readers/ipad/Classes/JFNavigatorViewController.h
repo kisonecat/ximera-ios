@@ -11,6 +11,7 @@
 
 @interface JFNavigatorViewController : UIViewController {
     IBOutlet UIScrollView * scrollView;
+    BOOL isDragging;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView * scrollView;
