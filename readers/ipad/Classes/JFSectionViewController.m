@@ -78,20 +78,40 @@
     [self.view setNeedsDisplay]; // "magically" restores the layer to a CATiledLayer?
     
     // Create any webviews that the user requested
-    CGRect webFrame = CGRectMake(50.0, 50.0 * currentSection, 400, 500.0);
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:webFrame];
-    [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsHorizontalScrollIndicator:NO];
-    [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsVerticalScrollIndicator:NO]; 
-    [webView setBackgroundColor:[UIColor clearColor]];
-    [webView setOpaque:NO];
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"textbook.plist"];
+    NSArray *interactiveElements = [NSArray arrayWithContentsOfFile:path];
+    
+    for(NSDictionary *interactiveElement in interactiveElements) {
+        if ([[interactiveElement valueForKey:@"page"] intValue] == currentSection + 1) {
+            NSArray* points = [interactiveElement valueForKey:@"rectangle"];
+            
+            // A PDF rectangle is left-top-right-bottom, but the coordinate system changed in extract.rb
+            // so that the origin is now in the upper-left
+            CGFloat left = [[points objectAtIndex:0] floatValue];
+            CGFloat bottom = [[points objectAtIndex:1] floatValue];
+            CGFloat right = [[points objectAtIndex:2] floatValue];
+            CGFloat top = [[points objectAtIndex:3] floatValue];
 
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"interactive" ofType:@"html"] isDirectory:NO];
-    [webView loadRequest:[NSURLRequest requestWithURL:url]];
-    [self.view addSubview:webView]; 
-    [webView release];
+            CGRect webFrame = CGRectMake(left, top, right - left, bottom - top);
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:webFrame];
+            [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsHorizontalScrollIndicator:NO];
+            [(UIScrollView*)[webView.subviews objectAtIndex:0] setShowsVerticalScrollIndicator:NO]; 
+            [webView setBackgroundColor:[UIColor clearColor]];
+            [webView setOpaque:NO];
+            
+            // Hide the UIImageView's which create the shadow
+            for(UIView *subview in [[[webView subviews] objectAtIndex:0] subviews]) { 
+                if([subview isKindOfClass:[UIImageView class]])
+                    subview.hidden = YES;
+            }
+            
+            NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"interactive" ofType:@"html"] isDirectory:NO];
+            [webView loadRequest:[NSURLRequest requestWithURL:url]];
+            [self.view addSubview:webView]; 
+            [webView release];
+        }
+    }
 }
-
-// #include "pagesetup.h"
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
