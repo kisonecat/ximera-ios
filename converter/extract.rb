@@ -8,6 +8,11 @@ require 'plist'
 receiver = PDF::Reader::RegisterReceiver.new
 filename = ARGV[0]
 
+width_in_points = 417.6
+width_in_inches = width_in_points / 72.0
+width_in_pixels = 768
+resolution_in_points_per_inch = width_in_pixels / width_in_inches
+
 reader = PDF::Reader.new(filename)
 for object in reader.objects.values
   next unless object.class == Hash
@@ -23,13 +28,22 @@ interactives = Array.new
 PDF::Reader.open(filename) do |reader|
   reader.pages.each do |page|
     puts page.number
-    next if  page.attributes[:Annots].nil?
+    media_box = page.page_object[:MediaBox]
+    next if page.attributes[:Annots].nil?
     for annotation in page.attributes[:Annots]
       puts annotation
       annotation = page.objects[annotation]
       interactive = Hash.new
       interactive[:rectangle] = annotation[:Rect]
-      interactive[:file] = annotation[:Contents]
+
+      # change the origin to the upper-left
+      interactive[:rectangle][1] = media_box[3] - interactive[:rectangle][1]
+      interactive[:rectangle][3] = media_box[3] - interactive[:rectangle][3]
+
+      # change the units from points to pixels
+      interactive[:rectangle].collect!{ |x| (x * width_in_pixels / width_in_points).to_i }
+
+      interactive[:filename] = annotation[:Contents]
       interactive[:page] = page.number
       interactives << interactive
     end
