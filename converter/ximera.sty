@@ -31,10 +31,11 @@
 \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}%
 }{%
 \end{minipage}\end{lrbox}%
-\begin{center}%
 \settoheight{\interactiveheight}{\usebox{\interactivebox}}%
 \settodepth{\interactivedepth}{\usebox{\interactivebox}}%
 \settowidth{\interactivewidth}{\usebox{\interactivebox}}%
+%\usebox{\interactivebox}
+\vspace{\interactiveheight}%
 \pdfannot%
   width \interactivewidth%
   height \interactiveheight%
@@ -44,9 +45,12 @@
     /T (\x)
     /Contents (\x)
   }%
-  \usebox{\interactivebox}
-\end{center}%
+\vspace{\interactivedepth}%
+\vspace{-\interactivedepth}%
+\vspace{-\interactiveheight}%
+\usebox{\interactivebox}%
 }
+% probably should get the height and depth correct...
 
 
 \RequirePackage{everyshi}
