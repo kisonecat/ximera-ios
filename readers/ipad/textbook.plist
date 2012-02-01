@@ -15,31 +15,5 @@
 			<integer>1201</integer>
 		</array>
 	</dict>
-	<dict>
-		<key>filename</key>
-		<string>llama.html</string>
-		<key>page</key>
-		<integer>1</integer>
-		<key>rectangle</key>
-		<array>
-			<integer>33</integer>
-			<integer>2246</integer>
-			<integer>684</integer>
-			<integer>1967</integer>
-		</array>
-	</dict>
-	<dict>
-		<key>filename</key>
-		<string>llama.html</string>
-		<key>page</key>
-		<integer>2</integer>
-		<key>rectangle</key>
-		<array>
-			<integer>33</integer>
-			<integer>1969</integer>
-			<integer>684</integer>
-			<integer>1689</integer>
-		</array>
-	</dict>
 </array>
 </plist>
