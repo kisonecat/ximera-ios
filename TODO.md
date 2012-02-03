@@ -24,6 +24,7 @@ Content Navigator:
 * Make table of contents
 * Allow scanned work to be inserted
 * sounds
+* screen capture (selective, rather than whole-page)
 
 
 
@@ -33,7 +34,6 @@ Interactives:
 * epsilon-delta definition of limit, with f(x) bouncing in between
 * Delayed display. 
 * Delayed display formulas with annotation and formulas morphing to next step
-* screen capture (selective, rather than whole-page)
 * avoid using graphics - rather use something that will teach the students to display by hand.
 * clicker/are you awake? button
 * a "group" assigner
