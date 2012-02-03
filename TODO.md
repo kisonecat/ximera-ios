@@ -1,11 +1,12 @@
 XIMERA Tasks
+============
 
 These are lists of task in no particular order. Some of the tasks
 appear in both lists, because there is a component needed in both
 categories.
 
--Conversion:-
-
+Conversion:
+-----------
 * Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow”
 * Enable searching
 * correct size for interactive
@@ -14,9 +15,8 @@ categories.
 * Make scripts “slice.rb” and “extract.rb” more friendly. (deposit tiles in the correct directory etc)
 * Eventually, we may want to use the STIX fonts. 
 
-
-
 Content Navigator:
+------------------
 * Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
 * Enable searching
 * Give gauge for depth in text
@@ -28,7 +28,7 @@ Content Navigator:
 
 
 Interactives:
-
+-------------
 * pull data from touch and display (llama and matrix)
 * epsilon-delta definition of limit, with f(x) bouncing in between
 * Delayed display. 
