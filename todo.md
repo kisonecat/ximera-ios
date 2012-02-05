@@ -7,13 +7,13 @@ categories.
 
 Conversion:
 -----------
-* Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow” (Bart is working on this)
-* Wang tiles for background.... background that changes as you get deeper in to the text. See: http://en.wikipedia.org/wiki/Wang_tile
-  Or - two sets of tiles, a 768x2048 base layer and a 768x2304 (mostly transparent detail layer) this will allow for 18 pages of no reptition background (Bart is working on this)
 * Enable searching
 * correct size for interactive
 * Make scripts “slice.rb” and “extract.rb” more friendly. (deposit tiles in the correct directory etc)
 * Eventually, we may want to use the STIX fonts. 
+* ~~Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow”~~
+* ~~Wang tiles for background.... background that changes as you get deeper in to the text. See: http://en.wikipedia.org/wiki/Wang_tile~~
+  ~~Or - two sets of tiles, a 768x2048 base layer and a 768x2304 (mostly transparent detail layer) this will allow for 18 pages of no reptition background~~
 
 Content Navigator:
 ------------------
