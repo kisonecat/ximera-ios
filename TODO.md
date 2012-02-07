@@ -40,3 +40,6 @@ Interactives:
 * movie whose rate is controled by a swipe (this is essentially a generic description for an interactive that could be used a lot)
 * incorperate scanned work
 
+Contacts:
+---------
+* http://www.saylor.org/ might be interested.
