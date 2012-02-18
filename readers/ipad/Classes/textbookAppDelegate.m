@@ -22,12 +22,21 @@
 @implementation textbookAppDelegate
 
 @synthesize window;
-@synthesize contView;
-@synthesize navView;
 @synthesize left;
 @synthesize right;
-@synthesize contentViewController, navViewController;
+@synthesize sectionViewController, navigatorViewController;
 @synthesize bookSpine;
+
+- (int)sectionCount
+{
+    NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *dirContents = [fm contentsOfDirectoryAtPath:bundleRoot error:nil];
+    NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH '.png' AND self BEGINSWITH 'page'"];
+    NSArray *onlyPages = [dirContents filteredArrayUsingPredicate:fltr];
+    
+    return [onlyPages count];
+}
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -43,7 +52,7 @@
 			((UIScrollView *)subview).bounces = NO;
 		}
 	}*/
-	
+    
     return YES;
 }
 

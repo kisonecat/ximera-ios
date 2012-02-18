@@ -1,20 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX)
 [1994/12/01]% LaTeX date must be December 1994 or later
-\ProvidesPackage{ximera}[2012/01/25 v0.7]
+\ProvidesPackage{ximera}[2012/01/30 v0.75]
 \ProcessOptions\relax
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% in htlatex, interactive should add a script environment
-
-%\@ifpackageloaded{tex4ht}{%
-%  \newcommand{\interactive}[2][]{\HCode{<script type="text/javascript"
-%      src="}#1\HCode{">}\HCode{</script>}}
-%}{
-%  \newcommand{\interactive}[2][]{#2}
-%}
-
-%\makeatother
-
 
 \RequirePackage{environ}
 %\RequirePackage{xkeyval}
@@ -27,12 +14,43 @@
 %\RequirePackage{nopageno}
 \RequirePackage{microtype}
 
+\RequirePackage[paperwidth=5.82in,left=0.25in,right=.55in,top=.5in,bottom=10in]{geometry}
 
+\RequirePackage{hyperref} % necessary for pdf annotations
 
-%\RequirePackage[paperwidth=5.8in,left=0.25in,paperheight=225in,right=.75in,top=.5in]{geometry}
-\RequirePackage[paperwidth=5.8in,left=0.25in,right=.75in,top=.5in,bottom=10in]{geometry}
+\newsavebox{\interactivebox}
+\newlength{\interactiveheight}
+\newlength{\interactivedepth}
+\newlength{\interactivewidth}
 
-%\RequirePackage[paperwidth=5.8in,paperheight=7.73in,left=0.25in,right=.75in]{geometry}
+% this interactive environment will typeset its contents, but also emit the pdf annotation which extract.rb will grab
+\newenvironment{interactive}[1]{
+\newcommand\colboxcolor{#1}%
+\pdfstringdef\x{#1}%
+\begin{lrbox}{\interactivebox}%
+\begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}%
+}{%
+\end{minipage}\end{lrbox}%
+\settoheight{\interactiveheight}{\usebox{\interactivebox}}%
+\settodepth{\interactivedepth}{\usebox{\interactivebox}}%
+\settowidth{\interactivewidth}{\usebox{\interactivebox}}%
+%\usebox{\interactivebox}
+\vspace{\interactiveheight}%
+\pdfannot%
+  width \interactivewidth%
+  height \interactiveheight%
+  depth \interactivedepth%
+  {
+    /Subtype /Text
+    /T (\x)
+    /Contents (\x)
+  }%
+\vspace{\interactivedepth}%
+\vspace{-\interactivedepth}%
+\vspace{-\interactiveheight}%
+\usebox{\interactivebox}%
+}
+% probably should get the height and depth correct...
 
 
 \RequirePackage{everyshi}
@@ -49,11 +67,6 @@
 \usetikzlibrary{shadows}
 \usetikzlibrary{shapes}
 \usetikzlibrary{decorations}
-
-
-%\RequirePackage{wallpaper}
-%\TileWallPaper{manuscript.jpg}
-%\TileWallPaper{5.24cm}{5.33cm}{manuscript.jpg}
 
 
 

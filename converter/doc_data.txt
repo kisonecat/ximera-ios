@@ -1,0 +1,13 @@
+InfoKey: Creator
+InfoValue: TeX
+InfoKey: Producer
+InfoValue: pdfTeX-1.40.10
+InfoKey: PTEX.Fullbanner
+InfoValue: This is pdfTeX, Version 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian) kpathsea version 5.0.0
+InfoKey: ModDate
+InfoValue: D:20120130134630-05'00'
+InfoKey: CreationDate
+InfoValue: D:20120130134630-05'00'
+PdfID0: 4981ce31a15d9d3b552f63406fa9628
+PdfID1: 4981ce31a15d9d3b552f63406fa9628
+NumberOfPages: 4

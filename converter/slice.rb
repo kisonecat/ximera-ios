@@ -32,6 +32,10 @@ width_in_inches = width_in_points / 72.0
 desired_width_in_pixels = 768
 resolution_in_points_per_inch = desired_width_in_pixels / width_in_inches
 
+desired_preview_width_in_pixels = 200
+preview_resolution_in_points_per_inch = desired_preview_width_in_pixels / width_in_inches
+
+
 input_directory = Dir.pwd
 
 pdfdraw = "mupdf/build/debug/pdfdraw"
@@ -43,6 +47,7 @@ Dir.mktmpdir do |dir|
 
   for filename in pdf_filenames
     `#{pdfdraw} -a -r #{resolution_in_points_per_inch} -o #{dir}/#{filename}.png #{dir}/#{filename}`
+    `#{pdfdraw} -a -r #{preview_resolution_in_points_per_inch} -o #{filename.gsub( '.pdf', '.png' )} #{dir}/#{filename}`
     `convert -crop 256x256 +repage #{dir}/#{filename}.png #{dir}/#{filename.gsub(/\.pdf$/,'').gsub(/^page/,'tile')}-%03d.png`
   end
 
