@@ -25,7 +25,9 @@ Content Navigator:
 * Allow scanned work to be inserted
 * sounds
 * screen capture (selective, rather than whole-page)
-
+* flash cards for dfn's, named thms
+* glossery for dfn's named thms
+* a "navigation view" where we see each section next to the other
 
 
 Interactives:
