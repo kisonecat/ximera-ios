@@ -1,0 +1,1 @@
+$ convert -crop 256x256 paper.png paperTile.png
