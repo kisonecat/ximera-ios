@@ -1,1 +1,5 @@
 $ convert -crop 256x256 paper.png paperTile.png
+
+MAYBE:
+
+convert -density 1200 doc.pdf  -resize 25% image-%02d.jpg
