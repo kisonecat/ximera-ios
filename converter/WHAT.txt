@@ -1,4 +1,5 @@
 $ convert -crop 256x256 paper.png paperTile.png
+$ convert -crop 256x256 paper.png paperTile-%02d.png
 
 MAYBE:
 
