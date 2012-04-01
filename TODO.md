@@ -20,6 +20,8 @@ Content Navigator:
 * Make navigation spine work.
 * Make table of contents.
 * a "navigation view" where we see each section next to the other
+* Enable "delayed display" can we use/do something like this? 
+  https://developer.mozilla.org/en-US/demos/detail/paperfold-css
 * Enable searching -- perhaps the "right" way to do this is by making a large 
   scrolling (spinning) list of keywords that someone could search for. This is 
   in contrast to the traditional search where one "types" in the word they are 
