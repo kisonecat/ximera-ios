@@ -20,19 +20,12 @@ Content Navigator:
 * Make navigation spine work.
 * Make table of contents.
 * a "navigation view" where we see each section next to the other
-* Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
-<<<<<<< HEAD
 * Enable searching -- perhaps the "right" way to do this is by making a large 
   scrolling (spinning) list of keywords that someone could search for. This is 
   in contrast to the traditional search where one "types" in the word they are 
   searching for. This could be implemented by using the LaTeX \index tag. 
-* Give gauge for depth in text
-* Make spine work ←Probably the most important
-* Make table of contents
-=======
->>>>>>> a7e42954865b6305c06f9e6ebf2684dcccb58e6f
+* Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
 * Allow scanned work to be inserted
-* Enable searching.
 * Give gauge for depth in text
 * sounds
 * screen capture (selective, rather than whole-page)
