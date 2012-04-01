@@ -6,7 +6,7 @@ categories.
 
 Conversion:
 -----------
-* Make scripts “slice.rb” and “extract.rb” more friendly, deposit tiles in the correct directory etc. We would like others to be able to use this process in the future
+* Make scripts “slice.rb” and “extract.rb” more friendly, deposit tiles in the correct directory etc. We would like others to be able to use this process in the future. We would also need to smooth the installation of mupdf
 * Correct size for interactive. Currently the interactives are in a fixed size window.
 * correct location for interactives. They should probably be centered on the screen by default. 
 * Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow.” We need this process to be somewhat flexable with respect to the resolution of the device. 
