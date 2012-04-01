@@ -38,6 +38,19 @@
     return aTile;
 }
 
+//- (UIImage*)backgroundtileAtCol:(int)col row:(int)row
+//{
+//    int index = row * 3 + col;
+//    NSString* filename = [NSString stringWithFormat: @"tile%03d-%03d.png", section + 1, index];
+    
+    /* There are some questions about imageNamed caching the images in memory, which might end up causing our app to crash when it can't free memory... */
+//    UIImage * aTile = [UIImage imageNamed:filename];
+//    
+//    return aTile;
+//}
+
+
+
 - (void)drawRect:(CGRect)rect {
     CGSize tileSize = (CGSize){256, 256};
     
@@ -49,13 +62,13 @@
     for (int row = firstRow; row <= lastRow; row++) {
         for (int col = firstCol; col <= lastCol; col++) {
             UIImage *tile = [self tileAtCol:col row:row];
-            
+
             CGRect tileRect = CGRectMake(tileSize.width * col, 
                                          tileSize.height * row,
                                          tileSize.width, tileSize.height);
             
             tileRect = CGRectIntersection(self.bounds, tileRect);
-            
+            // something like [backgroundtile drawInRect: tileRect];
             [tile drawInRect:tileRect];
         }
     }

@@ -18,7 +18,10 @@ Conversion:
 Content Navigator:
 ------------------
 * Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
-* Enable searching
+* Enable searching -- perhaps the "right" way to do this is by making a large 
+  scrolling (spinning) list of keywords that someone could search for. This is 
+  in contrast to the traditional search where one "types" in the word they are 
+  searching for. This could be implemented by using the LaTeX \index tag. 
 * Give gauge for depth in text
 * Make spine work ←Probably the most important
 * Make table of contents
