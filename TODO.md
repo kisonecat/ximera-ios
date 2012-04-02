@@ -6,7 +6,7 @@ categories.
 
 Conversion:
 -----------
-* Make scripts “slice.rb” and “extract.rb” more friendly, deposit tiles in the correct directory etc. We would like others to be able to use this process in the future
+* Make scripts “slice.rb” and “extract.rb” more friendly, deposit tiles in the correct directory etc. We would like others to be able to use this process in the future. We would also need to smooth the installation of mupdf
 * Correct size for interactive. Currently the interactives are in a fixed size window.
 * correct location for interactives. They should probably be centered on the screen by default. 
 * Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow.” We need this process to be somewhat flexable with respect to the resolution of the device. 
@@ -20,9 +20,14 @@ Content Navigator:
 * Make navigation spine work.
 * Make table of contents.
 * a "navigation view" where we see each section next to the other
+* Enable "delayed display" can we use/do something like this? 
+  https://developer.mozilla.org/en-US/demos/detail/paperfold-css
+* Enable searching -- perhaps the "right" way to do this is by making a large 
+  scrolling (spinning) list of keywords that someone could search for. This is 
+  in contrast to the traditional search where one "types" in the word they are 
+  searching for. This could be implemented by using the LaTeX \index tag. 
 * Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
 * Allow scanned work to be inserted
-* Enable searching.
 * Give gauge for depth in text
 * sounds
 * screen capture (selective, rather than whole-page)
