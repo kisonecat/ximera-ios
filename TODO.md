@@ -9,6 +9,7 @@ Conversion:
 * Make scripts “slice.rb” and “extract.rb” more friendly, deposit tiles in the correct directory etc. We would like others to be able to use this process in the future. We would also need to smooth the installation of mupdf
 * Correct size for interactive. Currently the interactives are in a fixed size window.
 * correct location for interactives. They should probably be centered on the screen by default. 
+* add a \includevide{http://link} to the styles that the author can use to link to a YouTube video.
 * Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow.” We need this process to be somewhat flexable with respect to the resolution of the device. 
 * Enable searching
 * Eventually, we may want to use the STIX fonts. 
@@ -26,6 +27,10 @@ Content Navigator:
   scrolling (spinning) list of keywords that someone could search for. This is 
   in contrast to the traditional search where one "types" in the word they are 
   searching for. This could be implemented by using the LaTeX \index tag. 
+* Add a way for students to give webpages to:
+  - Course management systems
+  - Relevant websites
+  - Relevant websites with in the text - i.e. link webpages to arbitrary portions of the text.
 * Add a “grippy” icon to the nav bar - *maybe* make the bar a brushed aluminum.
 * Allow scanned work to be inserted
 * Give gauge for depth in text
