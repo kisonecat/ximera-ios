@@ -35,6 +35,7 @@ Content Navigator:
 * Allow scanned work to be inserted
 * Give gauge for depth in text
 * sounds
+* Concerning Themes - see GitHub's massive number of themed pages.
 * screen capture (selective, rather than whole-page)
 * flash cards for dfn's, named thms.
 * glossery for dfn's named thms.
