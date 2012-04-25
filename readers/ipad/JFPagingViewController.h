@@ -24,5 +24,6 @@
 
 - (IBAction)pageDown:(id)sender;
 - (IBAction)pageUp:(id)sender;
+- (IBAction)paste:(id)sender;
 
 @end

@@ -38,65 +38,87 @@
 
 -(void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     // Shuffle around the three subviews
-
+    
+    /*
+     This operation takes care of wich sections are kept as the prev/curr/next one after you slide right/left
+     This is executed after the pan animation has finished and it is intended to keep the section in the middle 
+     as the current one. 
+     NEW: now it preserves the last place when you go back to the last section you were looking at
+            YAY! It only took me forever to figure this out. -D
+          Also cleaned out the code layout, I dislike empty if statements and returning in a void procedure
+     */
     CGFloat previousPageOrigin = 0;
     CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
-    CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
-
+    
     // If we're in the middle, no need to reshuffle
-    if (self.view.frame.origin.x == currentPageOrigin)
-        return;
-    
-    // Make the old previous page the new current page
-    if (self.view.frame.origin.x == previousPageOrigin) {
-        // Swap the frames
-        CGRect frame;
-        frame = self.previousSectionViewController.scrollView.frame;
-        self.previousSectionViewController.scrollView.frame = self.currentSectionViewController.scrollView.frame;
-        self.currentSectionViewController.scrollView.frame = frame;
-        self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
-                                     self.view.frame.size.width, self.view.frame.size.height );
-
-        self.currentSection = self.previousSectionViewController.currentSection;
-
-        // Swap the controllers
-        JFSectionViewController* controller;
-        controller = self.previousSectionViewController;
-        self.previousSectionViewController = self.currentSectionViewController;
-        self.currentSectionViewController = controller;
-    }
-
-    // Make the old previous page the new current page
-    if (self.view.frame.origin.x == nextPageOrigin) {
-        // Swap the frames
-        CGRect frame;
-        frame = self.nextSectionViewController.scrollView.frame;
-        self.nextSectionViewController.scrollView.frame = self.currentSectionViewController.scrollView.frame;
-        self.currentSectionViewController.scrollView.frame = frame;
-        self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
-                                     self.view.frame.size.width, self.view.frame.size.height );
+    if (self.view.frame.origin.x != currentPageOrigin){
+        //Record the starting positions
+        CGFloat prevStart, currStart, nextStart;
+        prevStart = self.previousSectionViewController.scrollView.frame.origin.x;
+        currStart = self.currentSectionViewController.scrollView.frame.origin.x;
+        nextStart = self.nextSectionViewController.scrollView.frame.origin.x;
+       
+        //get section count for the correct refresh
+        textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        int sectionCount = [delegate sectionCount];
         
-        self.currentSection = self.nextSectionViewController.currentSection;
-
-        // Swap the controllers
-        JFSectionViewController* controller;
-        controller = self.nextSectionViewController;
-        self.nextSectionViewController = self.currentSectionViewController;
-        self.currentSectionViewController = controller;
+        // Make the old previous page the new current page
+        if (self.view.frame.origin.x == previousPageOrigin) {
+            // set the current section
+            self.currentSection = self.previousSectionViewController.currentSection;
+            
+            // Swap the controllers (shift to right)
+            JFSectionViewController* controller;
+            controller = self.previousSectionViewController;
+            self.previousSectionViewController = self.nextSectionViewController;
+            self.nextSectionViewController = self.currentSectionViewController;
+            self.currentSectionViewController = controller;
+            
+            //Change the offset of the viewing rectangles (again, shift to left)
+            self.nextSectionViewController.scrollView.frame = 
+            CGRectOffset(self.nextSectionViewController.scrollView.frame, nextStart-currStart, 0);
+            self.previousSectionViewController.scrollView.frame = 
+            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-nextStart, 0);
+            self.currentSectionViewController.scrollView.frame = 
+            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
+            
+            //this has a new previous section, re image it
+            int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
+            [previousSectionViewController setSection: previousSection];
+            
+            //reset the view frame
+            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
+                                         self.view.frame.size.width, self.view.frame.size.height );
+        } else { //if (self.view.frame.origin.x == nextPageOrigin) {
+            // set the current section
+            self.currentSection = self.nextSectionViewController.currentSection;
+            
+            // Swap the controllers (shift to left)
+            JFSectionViewController* controller;
+            controller = self.nextSectionViewController;
+            self.nextSectionViewController = self.previousSectionViewController;
+            self.previousSectionViewController = self.currentSectionViewController;
+            self.currentSectionViewController = controller;
+            
+            //Change the offset of the viewing rectangles (again, shift to left)
+            self.nextSectionViewController.scrollView.frame = 
+            CGRectOffset(self.nextSectionViewController.scrollView.frame, nextStart-prevStart, 0);
+            self.previousSectionViewController.scrollView.frame = 
+            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
+            self.currentSectionViewController.scrollView.frame = 
+            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-nextStart, 0);
+            
+            //this new view has a new next section, re image it
+            int nextSection = (currentSection + 1) % sectionCount;
+            [nextSectionViewController setSection: nextSection];
+            
+            //reset the view frame
+            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
+                                         self.view.frame.size.width, self.view.frame.size.height );
+        }
+        //now we just need to refresh everything!
+        [self.view setNeedsDisplay];
     }
-
-    // Now we need to tell the section view controllers to update themselves!
-    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    int sectionCount = [delegate sectionCount];
-    
-    int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
-    int nextSection = (currentSection + 1) % sectionCount;
-    
-    [previousSectionViewController setSection: previousSection];
-    [nextSectionViewController setSection: nextSection];
-    [self.view setNeedsDisplay];
-    
-    return;
 }
 
 -(void)move:(id)sender
@@ -106,6 +128,7 @@
     static CGRect originalFrame;
     
 	if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
+        //we just began panning, this is an ugly way to store the current state when the panning began
         originalFrame = [self.view frame];
         return;
 	}
