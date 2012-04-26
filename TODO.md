@@ -53,6 +53,9 @@ Interactives:
 * movie whose rate is controled by a swipe (this is essentially a generic description for an interactive that could be used a lot)
 * incorperate scanned work
 * show inductive patterns, a truss of arbitrary length.
+* use Raphael.js http://raphaeljs.com/
+* use d3.js http://mbostock.github.com/d3/
+* use processing.js http://processing.org
 
 Contacts:
 ---------
