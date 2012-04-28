@@ -899,6 +899,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = textbook_Prefix.pch;
 				INFOPLIST_FILE = "textbook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Reflections;
 			};
 			name = Debug;
@@ -911,6 +912,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = textbook_Prefix.pch;
 				INFOPLIST_FILE = "textbook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Reflections;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -15,6 +15,7 @@
     IBOutlet JFSectionViewController *nextSectionViewController;
     
     int currentSection;
+    int newCurrentSection;
 }
 
 @property (nonatomic, retain) IBOutlet JFSectionViewController *currentSectionViewController; 
@@ -25,5 +26,6 @@
 - (IBAction)pageDown:(id)sender;
 - (IBAction)pageUp:(id)sender;
 - (IBAction)paste:(id)sender;
+- (IBAction)home:(id)sender;
 
 @end

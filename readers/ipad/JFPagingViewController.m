@@ -38,7 +38,6 @@
 
 -(void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     // Shuffle around the three subviews
-    
     /*
      This operation takes care of wich sections are kept as the prev/curr/next one after you slide right/left
      This is executed after the pan animation has finished and it is intended to keep the section in the middle 
@@ -47,11 +46,11 @@
             YAY! It only took me forever to figure this out. -D
           Also cleaned out the code layout, I dislike empty if statements and returning in a void procedure
      */
-    CGFloat previousPageOrigin = 0;
+ //   CGFloat previousPageOrigin = 0;
     CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
     
     // If we're in the middle, no need to reshuffle
-    if (self.view.frame.origin.x != currentPageOrigin){
+    if (newCurrentSection != currentSection){
         //Record the starting positions
         CGFloat prevStart, currStart, nextStart;
         prevStart = self.previousSectionViewController.scrollView.frame.origin.x;
@@ -62,13 +61,13 @@
         textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
         int sectionCount = [delegate sectionCount];
         
-        // Make the old previous page the new current page
-        if (self.view.frame.origin.x == previousPageOrigin) {
+        if (currentSection-newCurrentSection==1 || (currentSection==0 && newCurrentSection==sectionCount-1)) {
+            // Make the old previous page the new current page
             // set the current section
             self.currentSection = self.previousSectionViewController.currentSection;
             
             // Swap the controllers (shift to right)
-            JFSectionViewController* controller;
+            JFSectionViewController *controller;
             controller = self.previousSectionViewController;
             self.previousSectionViewController = self.nextSectionViewController;
             self.nextSectionViewController = self.currentSectionViewController;
@@ -89,7 +88,8 @@
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
-        } else { //if (self.view.frame.origin.x == nextPageOrigin) {
+        } else if (newCurrentSection-currentSection == 1 || (newCurrentSection==0 && currentSection==sectionCount-1)){
+            // Make the old next page the new current page
             // set the current section
             self.currentSection = self.nextSectionViewController.currentSection;
             
@@ -107,6 +107,37 @@
             CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
             self.currentSectionViewController.scrollView.frame = 
             CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-nextStart, 0);
+            
+            //this new view has a new next section, re image it
+            int nextSection = (currentSection + 1) % sectionCount;
+            [nextSectionViewController setSection: nextSection];
+            
+            //reset the view frame
+            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
+                                         self.view.frame.size.width, self.view.frame.size.height );
+        } else {
+            //previous has chapter one, the other two we need to redo!
+            
+            //set the current section
+            self.currentSection = self.previousSectionViewController.currentSection;
+            
+            //swap the controler for prev and current
+            JFSectionViewController *controller;
+            controller = self.previousSectionViewController;
+            self.previousSectionViewController = self.currentSectionViewController;
+            self.currentSectionViewController = controller;
+            
+            //change the offset of the viewing rectangles
+            //we do not need to move y origins because they are re-generated
+            self.previousSectionViewController.scrollView.frame = 
+            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
+            self.currentSectionViewController.scrollView.frame = 
+            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
+            
+            
+            //this has a new previous section, re image it
+            int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
+            [previousSectionViewController setSection: previousSection];
             
             //this new view has a new next section, re image it
             int nextSection = (currentSection + 1) % sectionCount;
@@ -156,14 +187,20 @@
     
 	if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         // Snap to the left
-        if (newOrigin.x < (previousPageOrigin + currentPageOrigin)/2)
+        if (newOrigin.x < (previousPageOrigin + currentPageOrigin)/2){
+            //we are in the next? section
             newOrigin.x = previousPageOrigin;
-        else {
-            // Snap to the right
-            if (newOrigin.x >= (nextPageOrigin + currentPageOrigin)/2)
-                newOrigin.x = nextPageOrigin;
-            else // snap to the middle
-                newOrigin.x = currentPageOrigin;
+            newCurrentSection = self.nextSectionViewController.currentSection;
+        }
+        else if (newOrigin.x >= (nextPageOrigin + currentPageOrigin)/2){
+            //we are in the previous? section
+            newOrigin.x = nextPageOrigin;
+            newCurrentSection = self.previousSectionViewController.currentSection;
+        }
+        else{ 
+            // we are in the current section
+            newOrigin.x = currentPageOrigin;
+            newCurrentSection = self.currentSection;
         }
         
 		[UIView beginAnimations:nil context:NULL];
@@ -193,8 +230,7 @@
 
 - (void)pageDown:(id)sender
 {
-    CGFloat previousPageOrigin = 0;
-    CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
+    newCurrentSection = self.nextSectionViewController.currentSection;
     CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
 
     [UIView beginAnimations:nil context:NULL];
@@ -210,9 +246,9 @@
 
 - (void)pageUp:(id)sender
 {
+    newCurrentSection = self.previousSectionViewController.currentSection;
     CGFloat previousPageOrigin = 0;
-    CGFloat currentPageOrigin = -self.previousSectionViewController.view.frame.size.width;
-    CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+    
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:.25];
@@ -223,6 +259,29 @@
     [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
     
     [UIView commitAnimations];
+}
+
+- (IBAction)home:(id)sender {
+    if (self.currentSection != 0){
+        //the new current section wil be section 0
+        newCurrentSection = 0;
+        //the previous pan becomes home
+        [previousSectionViewController setSection: 0];        
+        
+        //the rest of this looks a lot like page up!
+        CGFloat previousPageOrigin = 0;
+        
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        
+        [UIView commitAnimations];
+    }//else, there is no where to go to
 }
 
 #pragma mark - View lifecycle
