@@ -22,3 +22,7 @@ build/*
 # osx noise
 .DS_Store
 profile
+
+#Installed by us
+pngcrush
+converter/mupdf/*
