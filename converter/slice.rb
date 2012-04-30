@@ -38,7 +38,8 @@ preview_resolution_in_points_per_inch = desired_preview_width_in_pixels / width_
 
 input_directory = Dir.pwd
 
-pdfdraw = "mupdf/build/debug/pdfdraw"
+pdfdraw = "mupdf/build/debug/mudraw"
+pngcrush = "pngcrush/pngcrush"
 
 Dir.mktmpdir do |dir|
   `pdftk #{input_file} burst output #{dir}/page%03d.pdf`
@@ -54,6 +55,6 @@ Dir.mktmpdir do |dir|
   png_filenames = Dir.new(dir).entries.select{ |x| x.match( /tile[0-9]*-[0-9]*\.png$/ ) }
 
   for filename in png_filenames
-    `pngcrush -rem alla -rem text #{dir}/#{filename} #{filename}`
+    `#{pngcrush} -rem alla -rem text #{dir}/#{filename} #{filename}`
   end
 end
