@@ -1,5 +1,5 @@
-﻿How to use converter
-====================
+﻿How to Install and Use the XiMeRa Converter
+===========================================
 
 You'll need to install the following:
 * Ruby 
@@ -19,31 +19,58 @@ GCC compiler.
 
 Check to see if you have GCC installed by opening a Terminal session and typing 
 
-`$ gcc --version`
+`gcc --version`
 
-If you see a version number, then you're all set.  
+If you see a version number, then you're all set. If not, then you
+need to install GCC.
 
-2. Next, to install RVM from its GitHub repository (the  recommended way), you need a working version of the git version control system. 
+2. Next, to install RVM from its GitHub repository (the recommended
+way), you need a working version of the git version control system.
 Check to see if you already have git installed by typing the following: 
-git --version 
-If you see a version number, then you're good to go. If the git command isn't found, then download the latest version of the graphical Git installer from the git-osx-installer downloads page. Once it has finished downloading, simply double-click the .dmg file to start the installation process. 
 
-3. With that out of the way, install RVM by going back to your Terminal prompt and typing (or copying and pasting) the following: 
-bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer) 
-Note that bash isn't the prompt here; you actually have to type it. And be careful: there are two less-than signs in this command, with a space between them. 
+`git --version` 
 
-4. When the RVM installation is complete (it's fairly quick), reload your Terminal shell environment by typing 
-source ~/.bash_profile 
-This knits RVM into your environment and causes RVM to be loaded into any new Terminal sessions. 
-5. Close your Terminal session and open a new session. Then confirm that RVM is being loaded properly by typing 
-type rvm | head -1 
-Note that type is a command that you actually have to type. 
+If you see a version number, then you're good to go. If the git
+command isn't found, then download the latest version of the graphical
+Git installer from the git-osx-installer downloads page. 
+
+http://code.google.com/p/git-osx-installer/
+
+Once it has finished downloading, simply double-click the .dmg file to
+start the installation process.
+
+3. With that out of the way, install RVM by going back to your
+Terminal prompt and typing (or copying and pasting) the following:
+
+`bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
+
+Be careful: there are two less-than signs in this command, with a
+space between them.
+
+4. When the RVM installation is complete (it's fairly quick), reload
+your Terminal shell environment by typing
+
+`source ~/.bash_profile`
+
+This knits RVM into your environment and causes RVM to be loaded into
+any new Terminal sessions.
+
+5. Close your Terminal session and open a new session. Then confirm that RVM is being loaded properly by typing
+ 
+`type rvm | head -1` 
+
 You should see the following: 
-rvm is a function 
+
+`rvm is a function`
+
 6. Now that you have RVM installed, you're ready to install Ruby 1.9.3. To do that, type 
-rvm install 1.9.3 
+
+`rvm install 1.9.3`
+
 If you get an error and you have Xcode 4.2 installed, you may have to use 
-rvm install 1.9.3 --with-gcc=clang 
+
+`rvm install 1.9.3 --with-gcc=clang`
+
 This will download, compile, and install Ruby 1.9.3 into a directory managed by RVM (it's under the ~/.rvm directory). 
 When the installation is done and you're back at a command prompt, set Ruby 1.9.3 as the current Ruby version in your Terminal session by typing 
 rvm use 1.9.3 
