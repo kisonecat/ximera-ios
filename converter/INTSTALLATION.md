@@ -1,19 +1,26 @@
-﻿
-How to use converter
+﻿How to use converter
+====================
 
-These are the various programs/ applications which you need to use converter:
-Ruby 
-pngcrush 
-mupdf
+You'll need to install the following:
+* Ruby 
+* pngcrush 
+* mupdf
 
-1)How to install ruby on mac system
+Installing Ruby on MacOS 10.7
+-----------------------------
 
-Install Ruby 1.9
-Snow Leopard and Lion ship with Ruby 1.8.7, but this is an old version and  we're going to also install Ruby 1.9.3. We won't be updating the system-installed Ruby. That way, you'll be able to switch back and forth between these Ruby versions if you like.
-1. RVM compiles Ruby versions from source code, and to do that it uses the GCC compiler .
+You will need Ruby 1.9. Snow Leopard and Lion ship with Ruby 1.8.7,
+but this is an old version and we'll need at least 1.9.3. We won't be
+updating the system-installed Ruby. That way, you'll be able to switch
+back and forth between these Ruby versions if you like.  
+
+1. RVM compiles Ruby versions from source code, and to do that it uses the
+GCC compiler.
 
 Check to see if you have GCC installed by opening a Terminal session and typing 
-gcc --version 
+
+`$ gcc --version`
+
 If you see a version number, then you're all set.  
 
 2. Next, to install RVM from its GitHub repository (the  recommended way), you need a working version of the git version control system. 
