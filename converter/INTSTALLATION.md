@@ -29,61 +29,79 @@ back and forth between these Ruby versions if you like.
    Check to see if you already have git installed by typing the
    following:
 
-`git --version` 
+   `git --version` 
 
-If you see a version number, then you're good to go. If the git
-command isn't found, then download the latest version of the graphical
-Git installer from the git-osx-installer downloads page. 
+   If you see a version number, then you're good to go. If the git
+   command isn't found, then download the latest version of the
+   graphical Git installer from the git-osx-installer downloads page.
 
-http://code.google.com/p/git-osx-installer/
+   http://code.google.com/p/git-osx-installer/
 
-Once it has finished downloading, simply double-click the .dmg file to
-start the installation process.
+   Once it has finished downloading, simply double-click the .dmg file
+   to start the installation process.
 
 3. With that out of the way, install RVM by going back to your
-Terminal prompt and typing (or copying and pasting) the following:
+   Terminal prompt and typing (or copying and pasting) the following:
 
-`bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
+   `bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
 
-Be careful: there are two less-than signs in this command, with a
-space between them.
+   Be careful: there are two less-than signs in this command, with a
+   space between them.
 
 4. When the RVM installation is complete (it's fairly quick), reload
-your Terminal shell environment by typing
+   your Terminal shell environment by typing
 
-`source ~/.bash_profile`
+   `source ~/.bash_profile`
 
-This knits RVM into your environment and causes RVM to be loaded into
-any new Terminal sessions.
+   This knits RVM into your environment and causes RVM to be loaded
+   into any new Terminal sessions.
 
-5. Close your Terminal session and open a new session. Then confirm that RVM is being loaded properly by typing
+5. Close your Terminal session and open a new session. Then confirm
+   that RVM is being loaded properly by typing
  
-`type rvm | head -1` 
+   `type rvm | head -1` 
 
-You should see the following: 
+   You should see the following: 
 
-`rvm is a function`
+   `rvm is a function`
 
-6. Now that you have RVM installed, you're ready to install Ruby 1.9.3. To do that, type 
+6. Now that you have RVM installed, you're ready to install Ruby
+   1.9.3. To do that, type
 
-`rvm install 1.9.3`
+   `rvm install 1.9.3`
 
-If you get an error and you have Xcode 4.2 installed, you may have to use 
+   If you get an error and you have Xcode 4.2 installed, you may have
+   to use
 
-`rvm install 1.9.3 --with-gcc=clang`
+   `rvm install 1.9.3 --with-gcc=clang`
 
-This will download, compile, and install Ruby 1.9.3 into a directory managed by RVM (it's under the ~/.rvm directory). 
-When the installation is done and you're back at a command prompt, set Ruby 1.9.3 as the current Ruby version in your Terminal session by typing 
-rvm use 1.9.3 
+   This will download, compile, and install Ruby 1.9.3 into a
+   directory managed by RVM (it's under the ~/.rvm directory).  When
+   the installation is done and you're back at a command prompt, set
+   Ruby 1.9.3 as the current Ruby version in your Terminal session by
+   typing
+ 
+   `rvm use 1.9.3` 
+
 7. Then verify that Ruby 1.9.3 is the current Ruby version by typing 
-ruby -v 
-You should see 
-ruby 1.9.3p125 (2012-02-16 revision 34643) [x86_64-darwin11.3.0] 
-8. Now set Ruby 1.9.3 as the default version to be used whenever you open any new Terminal sessions by typing 
-rvm --default 1.9.3 
-9. Finally, although not required, you'll likely want to generate the Ruby core documentation by typing 
-rvm docs generate 
-This takes a little while to complete, but in the end you'll have all the Ruby documentation at your fingertips. 
+
+   `ruby -v` 
+
+   You should see something like 
+
+   `ruby 1.9.3 (2012-02-16 revision 34643) [x86_64-darwin11.3.0]`
+
+8. Now set Ruby 1.9.3 as the default version to be used whenever you
+   open any new Terminal sessions by typing
+
+   `rvm --default 1.9.3` 
+
+9. Finally, although not required, you'll likely want to generate the Ruby core    documentation by typing 
+
+   `rvm docs generate` 
+
+   This takes a little while to complete, but in the end you'll have
+   all the Ruby documentation at your fingertips.
 
 you can now easily switch between Ruby versions. For example, if you ever want to go back to the system-installed version of Ruby (1.8.7), simply type 
 rvm system 
