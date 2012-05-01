@@ -15,9 +15,7 @@ updating the system-installed Ruby. That way, you'll be able to switch
 back and forth between these Ruby versions if you like.  
 
 1. RVM compiles Ruby versions from source code, and to do that it uses the
-GCC compiler.
-
-Check to see if you have GCC installed by opening a Terminal session and typing 
+GCC compiler. Check to see if you have GCC installed by opening a Terminal session and typing 
 
 `gcc --version`
 
