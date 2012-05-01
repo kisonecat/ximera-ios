@@ -1,13 +1,13 @@
-﻿How to Install and Use the XiMeRa Converter
-===========================================
+﻿How to Install and Use the XiMeRa Converter on Mac OS 10.7
+==========================================================
 
 You'll need to install the following:
 * Ruby 
 * pngcrush 
 * mupdf
 
-Installing Ruby on MacOS 10.7
------------------------------
+Installing Ruby
+---------------
 
 You will need Ruby 1.9. Snow Leopard and Lion ship with Ruby 1.8.7,
 but this is an old version and we'll need at least 1.9.3. We won't be
@@ -103,52 +103,78 @@ back and forth between these Ruby versions if you like.
    This takes a little while to complete, but in the end you'll have
    all the Ruby documentation at your fingertips.
 
-you can now easily switch between Ruby versions. For example, if you ever want to go back to the system-installed version of Ruby (1.8.7), simply type 
-rvm system 
-And to switch back to Ruby 1.9.3, type 
-rvm 1.9.3 
-Alternatively, you can switch back to the default version (1.9.3) by typing 
-rvm default 
-And when a new version of Ruby comes along, you can easily install it alongside your existing versions. 
+   You can now easily switch between Ruby versions. For example, if
+   you ever want to go back to the system-installed version of Ruby
+   (1.8.7), simply type
+
+   `rvm system`
+
+   And to switch back to Ruby 1.9.3, type 
+
+   `rvm 1.9.3`
+
+   Alternatively, you can switch back to the default version (1.9.3)
+   by typing rvm default And when a new version of Ruby comes along,
+   you can easily install it alongside your existing versions.
 
 
+Installing Pngcrush
+-------------------
 
-2) How to install pngcrush:
-
-1. Download the pngcrush
+1. Download pngcrush: 
+
+   http://sourceforge.net/projects/pmt/files/pngcrush/1.7.20
+
 2. Extract the source code
-3. Compile pngcrush	
 
-
-1. Download pngcrush: direct link: http://sourceforge.net/projects/pmt/files/pngcrush/1.7.20
-2. Extract the source code
 3. While in the pngcrush-1.7.2 folder, run these commands to compile it.
-make 
-sudo mv pngcrush /user/local/bin 
 
-The make command compiles the code. Next line move the executable to /usr/local/bin. It does not matter where you move the compiled executable, but we recommend that you put it in a place within your environment’s path.
+   `make` 
+   `sudo mv pngcrush /user/local/bin`
 
-Note: where to put the pngcrush folder : After downloading and unzipping the pngcrush, rename the folder as pngcrush.
-It should be put inside Ximera/converter 
+   The make command compiles the code. Next line move the executable
+   to /usr/local/bin. It does not matter where you move the compiled
+   executable, but we recommend that you put it in a place within your
+   environment’s path.
+
+   Note: where to put the pngcrush folder : After downloading and
+   unzipping the pngcrush, rename the folder as pngcrush.  It should
+   be put inside the ximera/converter directory.
 
 
-3)How to install mupdf:
+Installing MuPDF
+----------------
 
-In order to install mupdf you will need several third party libraries: freetype2, jbig2dec, libjpeg, openjpeg, and zlib. We have prepared a package (mupdf-thirdparty.zip) that you can unzip in the mupdf source tree if you don't have them installed on your system.
+In order to install mupdf you will need several third party libraries:
+freetype2, jbig2dec, libjpeg, openjpeg, and zlib. There is a package
+(mupdf-thirdparty.zip) that you can unzip in the mupdf source tree if
+you don't have them installed on your system.
 
+Download: 
 
-Direct link to download: http://code.google.com/p/mupdf/downloads/list?q=source
+http://code.google.com/p/mupdf/downloads/list?q=source
+
 Download both the source and thirdparty file. 
 
 While in the mupdf folder, run these commands to compile it.
-make 
-# if you get an error then :
 
-The configuration file for mupdf mistakes the architecture of the computer. You can fix this by making the changes describe below. The changes to the makeconfig file are underlined. If you are working with a 32bit Mac, then the CFLAGS and LDFLAGS should be set to -m32: 
+`make` 
+
+If you get an error then, perhaps the configuration file for MuPDF
+has misidentified the architecture of the computer. You can fix this by making
+the changes describe below. The changes to the makeconfig file are
+underlined. If you are working with a 32bit Mac, then 
+
+`CFLAGS`
+and 
+
+`LDFLAGS`
+
+should be set to -m32:
 
 You can find makeconfig file inside the mupdf folder with the name makerule
 
-# Mac OS X build depends on some thirdparty libs
+`# Mac OS X build depends on some thirdparty libs
 ifeq "$(OS)" "Darwin"
 SYS_FREETYPE_INC := -I/usr/X11R6/include/freetype2
 CFLAGS += -I/usr/X11R6/include
@@ -162,7 +188,7 @@ LDFLAGS += -m64
 #CFLAGS += -m32
 #LDFLAGS += -m32
 #endif
-endif
+endif`
 
 
 Note: mupdf should be put inside Ximera/converter and thirdparty should be inside ximera/converter/mupdf
