@@ -3,8 +3,8 @@
 
 You'll need to install the following:
 * Ruby 
-* pngcrush 
-* mupdf
+* Pngcrush 
+* MuPDF
 
 Installing Ruby
 ---------------
@@ -155,16 +155,18 @@ Download:
 
 http://code.google.com/p/mupdf/downloads/list?q=source
 
-Download both the source and thirdparty file. 
+Download both the source and thirdparty file. The directory mupdf
+should be put inside ximera/converter and thirdparty should be inside
+ximera/converter/mupdf
 
 While in the mupdf folder, run these commands to compile it.
 
 `make` 
 
-If you get an error then, perhaps the configuration file for MuPDF
-has misidentified the architecture of the computer. You can fix this by making
-the changes describe below. The changes to the makeconfig file are
-underlined. If you are working with a 32bit Mac, then 
+If you get an error then perhaps the configuration file for MuPDF has
+misidentified the architecture of the computer. You can fix this by
+making the changes describe below. The changes to the makeconfig file
+are underlined. If you are working with a 32bit Mac, then
 
 `CFLAGS`
 and 
@@ -193,15 +195,7 @@ LDFLAGS += -m64
 endif
 ```
 
-
-Note: mupdf should be put inside Ximera/converter and thirdparty should be inside ximera/converter/mupdf
-
-
-4) To run extract and slice ruby files
-
-Both files take one pdf file. Here we are using transIdeaEg.pdf file to run it.
-
-
+At this point you should be ready to run extract.rb and slice.rb.
 
 
 
