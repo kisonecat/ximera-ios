@@ -14,17 +14,20 @@ but this is an old version and we'll need at least 1.9.3. We won't be
 updating the system-installed Ruby. That way, you'll be able to switch
 back and forth between these Ruby versions if you like.  
 
-1. RVM compiles Ruby versions from source code, and to do that it uses the
-GCC compiler. Check to see if you have GCC installed by opening a Terminal session and typing 
+1. RVM compiles Ruby versions from source code, and to do that it uses
+   the GCC compiler. Check to see if you have GCC installed by opening
+   a Terminal session and typing (if you are viewing this as a plain
+   txt file, you see the code inside of backtick quotes ` )
 
-`gcc --version`
+   `gcc --version`
 
-If you see a version number, then you're all set. If not, then you
-need to install GCC.
+   If you see a version number, then you're all set. If not, then you
+   need to install GCC.
 
 2. Next, to install RVM from its GitHub repository (the recommended
-way), you need a working version of the git version control system.
-Check to see if you already have git installed by typing the following: 
+   way), you need a working version of the git version control system.
+   Check to see if you already have git installed by typing the
+   following:
 
 `git --version` 
 
