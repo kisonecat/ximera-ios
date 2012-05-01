@@ -130,6 +130,7 @@ Installing Pngcrush
 3. While in the pngcrush-1.7.2 folder, run these commands to compile it.
 
    `make` 
+
    `sudo mv pngcrush /user/local/bin`
 
    The make command compiles the code. Next line move the executable
@@ -174,7 +175,7 @@ should be set to -m32:
 
 You can find makeconfig file inside the mupdf folder with the name makerule
 
-`# Mac OS X build depends on some thirdparty libs
+```# Mac OS X build depends on some thirdparty libs
 ifeq "$(OS)" "Darwin"
 SYS_FREETYPE_INC := -I/usr/X11R6/include/freetype2
 CFLAGS += -I/usr/X11R6/include
@@ -188,7 +189,7 @@ LDFLAGS += -m64
 #CFLAGS += -m32
 #LDFLAGS += -m32
 #endif
-endif`
+endif```
 
 
 Note: mupdf should be put inside Ximera/converter and thirdparty should be inside ximera/converter/mupdf
