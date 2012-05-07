@@ -24,11 +24,15 @@
 @class JFSectionViewController;
 @class JFNavigatorViewController;
 @class JFBookSpine;
+@class JFPagingViewController;
 
 @interface textbookAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	UIBarButtonItem *left;
 	UIBarButtonItem *right;
+    
+    //reference to be able to find this
+    JFPagingViewController* pagingViewController;
 	
 	IBOutlet JFSectionViewController *sectionViewController;
 	IBOutlet JFNavigatorViewController *navigatorViewController;
@@ -44,5 +48,8 @@
 @property (nonatomic, retain) IBOutlet JFBookSpine *bookSpine;
 
 - (int)sectionCount;
+
+- (void)registerPaigingViewController: (JFPagingViewController *) pagingController;
+- (JFPagingViewController *) getPagingViewController;
 
 @end

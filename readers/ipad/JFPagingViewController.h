@@ -28,4 +28,6 @@
 - (IBAction)paste:(id)sender;
 - (IBAction)home:(id)sender;
 
+- (void) setSection: (int) newSection;
+
 @end

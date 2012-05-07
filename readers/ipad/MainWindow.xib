@@ -17,6 +17,7 @@
 			<string>IBUIViewController</string>
 			<string>IBUICustomObject</string>
 			<string>IBUIWindow</string>
+			<string>IBUITapGestureRecognizer</string>
 			<string>IBUIScrollView</string>
 			<string>IBUIButton</string>
 		</object>
@@ -273,11 +274,13 @@
 										<int key="NSvFlags">274</int>
 										<string key="NSFrameSize">{200, 1004}</string>
 										<reference key="NSSuperview" ref="714639984"/>
-										<reference key="NSNextKeyView"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
 											<reference key="NSCustomColorSpace" ref="1039937755"/>
+										</object>
+										<object class="NSArray" key="IBUIGestureRecognizers" id="0">
+											<bool key="EncodedWithXMLCoder">YES</bool>
 										</object>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 									</object>
@@ -287,6 +290,7 @@
 								<reference key="NSNextKeyView" ref="904077279"/>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
+								<reference key="IBUIGestureRecognizers" ref="0"/>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<bool key="IBUIBounces">NO</bool>
 								<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
@@ -378,6 +382,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
 			</object>
+			<object class="IBUITapGestureRecognizer" id="235461170"/>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -498,6 +503,16 @@
 					<int key="connectionID">274</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">gestureRecognizers</string>
+						<reference key="source" ref="904077279"/>
+						<reference key="destination" ref="235461170"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">YES</bool>
+					</object>
+					<int key="connectionID">286</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">view</string>
 						<reference key="source" ref="186395487"/>
@@ -609,15 +624,21 @@
 					</object>
 					<int key="connectionID">268</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">tapped:</string>
+						<reference key="source" ref="235461170"/>
+						<reference key="destination" ref="186395487"/>
+					</object>
+					<int key="connectionID">287</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBObjectRecord">
 						<int key="objectID">0</int>
-						<object class="NSArray" key="object" id="0">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
+						<reference key="object" ref="0"/>
 						<reference key="children" ref="1000"/>
 						<nil key="parent"/>
 					</object>
@@ -665,11 +686,11 @@
 						<reference key="object" ref="259876724"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="714639984"/>
 							<reference ref="600993873"/>
 							<reference ref="860701597"/>
 							<reference ref="857379127"/>
 							<reference ref="114389307"/>
+							<reference ref="714639984"/>
 						</object>
 						<reference key="parent" ref="62075450"/>
 						<string key="objectName">Book Spine</string>
@@ -707,6 +728,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">223</int>
 						<reference key="object" ref="904077279"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="714639984"/>
 						<string key="objectName">View</string>
 					</object>
@@ -787,6 +811,11 @@
 						<reference key="object" ref="407779744"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">284</int>
+						<reference key="object" ref="235461170"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -822,6 +851,7 @@
 					<string>247.IBPluginDependency</string>
 					<string>264.CustomClassName</string>
 					<string>264.IBPluginDependency</string>
+					<string>284.IBPluginDependency</string>
 					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
 					<string>94.CustomClassName</string>
@@ -861,6 +891,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>JFPagingViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>textbookAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>JFBookSpine</string>
@@ -882,7 +913,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">283</int>
+			<int key="maxID">287</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

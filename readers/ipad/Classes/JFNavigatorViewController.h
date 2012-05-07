@@ -12,8 +12,11 @@
 @interface JFNavigatorViewController : UIViewController {
     IBOutlet UIScrollView * scrollView;
     BOOL isDragging;
+    CGFloat *yBoundaries;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView * scrollView;
+
+- (IBAction)tapped:(UITapGestureRecognizer *)sender;
 
 @end

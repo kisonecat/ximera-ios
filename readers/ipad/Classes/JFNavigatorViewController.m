@@ -11,6 +11,7 @@
 #import "textbookAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
+@class JFPagingViewController;
 
 @implementation JFNavigatorViewController
 
@@ -27,6 +28,8 @@
 
 - (void)dealloc
 {
+    //if we are gone, we do not need boundaries
+    free (yBoundaries);
     [super dealloc];
 }
 
@@ -45,7 +48,10 @@
 {
     textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     int sectionCount = [delegate sectionCount];
-
+    
+    //this one will keep the boundaries of the spines
+    yBoundaries = malloc((sectionCount+1)*sizeof(float));
+    
     CGFloat position = 0;
     CGFloat width = 0;
     for( int i=0; i<sectionCount; i++ ) {
@@ -57,10 +63,15 @@
         width = self.view.frame.size.width;
         CGFloat height = width * image.size.height / image.size.width;
         layer.frame = CGRectMake(0,position,width,height);
+        
+        yBoundaries[i]=position;
+        // to get one of them:
         position += height;
         [self.view.layer addSublayer:layer];
     }    
-        
+    
+    yBoundaries[sectionCount] = position;
+    
     self.view.frame = CGRectMake(0,0,width,position);
     self.scrollView.contentSize = self.view.frame.size;
 }
@@ -115,5 +126,20 @@
      */
 }
 
-
+//This is where we will move to the right section
+- (IBAction)tapped:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded)     
+    {   
+        textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        // handling code     
+        CGPoint p = [sender locationInView:scrollView];
+        CGFloat y = p.y;
+        int section = 0;
+        while (yBoundaries[section+1]<y){
+            section ++;
+        }
+        JFPagingViewController* pager = [delegate getPagingViewController];
+        [pager setSection: section];
+    }
+}
 @end

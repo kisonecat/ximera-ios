@@ -226,6 +226,8 @@
     [previousSectionViewController setSection: previousSection];
     [currentSectionViewController setSection: currentSection];
     [nextSectionViewController setSection: nextSection];
+    
+    [delegate registerPaigingViewController: self];
 }
 
 - (void)pageDown:(id)sender
@@ -270,8 +272,6 @@
         
         //the rest of this looks a lot like page up!
         CGFloat previousPageOrigin = 0;
-        
-        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:.25];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -279,9 +279,49 @@
                                         self.view.frame.size.width, self.view.frame.size.height )];
         [UIView setAnimationDelegate: self];
         [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-        
         [UIView commitAnimations];
     }//else, there is no where to go to
+}
+
+
+- (void) setSection: (int) newSection{
+    if (self.currentSection < newSection){
+        //move forward
+        //the new current section wil be the given section
+        newCurrentSection = newSection;
+        //the next pan becomes home
+        [nextSectionViewController setSection: newSection];  
+        
+        //the rest of this looks a lot like a page down
+        CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( nextPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        
+        [UIView commitAnimations];
+    } else if (self.currentSection > newSection){
+        //move back
+        //the new current section wil be section newSection
+        newCurrentSection = newSection;
+        //the previous pan becomes home
+        [previousSectionViewController setSection: newSection];        
+        
+        //the rest of this looks a lot like page up!
+        CGFloat previousPageOrigin = 0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        [UIView commitAnimations];
+    }//else we stay put
 }
 
 #pragma mark - View lifecycle

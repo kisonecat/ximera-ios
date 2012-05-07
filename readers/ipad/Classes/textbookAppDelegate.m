@@ -93,5 +93,12 @@
     [super dealloc];
 }
 
+- (void)registerPaigingViewController: (JFPagingViewController *) registerMe{
+    pagingViewController = registerMe;
+}
+
+- (JFPagingViewController *) getPagingViewController{
+    return pagingViewController;
+}
 
 @end
