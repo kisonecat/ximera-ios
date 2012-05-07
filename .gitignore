@@ -23,6 +23,16 @@ build/*
 .DS_Store
 profile
 
+<<<<<<< HEAD
 #Installed by us
 pngcrush
 converter/mupdf/*
+=======
+readers/ipad/textbook.xcodeproj/project.xcworkspace/xcuserdata/mathuser.xcuserdatad/UserInterfaceState.xcuserstate
+
+readers/ipad/textbook.xcodeproj/xcuserdata/mathuser.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
+readers/ipad/textbook.xcodeproj/xcuserdata/mathuser.xcuserdatad/xcschemes/xcschememanagement.plist
+
+readers/ipad/textbook.xcodeproj/xcuserdata/mathuser.xcuserdatad/xcschemes/textbook.xcscheme
+>>>>>>> Ignoring automatically generated files
