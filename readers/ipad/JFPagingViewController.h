@@ -16,6 +16,7 @@
     
     int currentSection;
     int newCurrentSection;
+    float* offsets;
 }
 
 @property (nonatomic, retain) IBOutlet JFSectionViewController *currentSectionViewController; 
@@ -28,6 +29,6 @@
 - (IBAction)paste:(id)sender;
 - (IBAction)home:(id)sender;
 
-- (void) setSection: (int) newSection;
+- (void) setSection: (int)newSection withOffset:(float)offset;
 
 @end

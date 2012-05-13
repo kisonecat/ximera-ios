@@ -21,5 +21,7 @@
 
 - (int)currentSection;
 - (void)setSection:(int)aSection;
+- (void)setSection:(int)aSection withOffset:(float)offset;
+
 
 @end

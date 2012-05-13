@@ -51,6 +51,10 @@
     
     // If we're in the middle, no need to reshuffle
     if (newCurrentSection != currentSection){
+        //Record the offset of the current section.
+        offsets[self.currentSection] = self.currentSectionViewController.scrollView.contentOffset.y/
+                                       self.currentSectionViewController.view.frame.size.height;
+        
         //Record the starting positions
         CGFloat prevStart, currStart, nextStart;
         prevStart = self.previousSectionViewController.scrollView.frame.origin.x;
@@ -62,6 +66,7 @@
         int sectionCount = [delegate sectionCount];
         
         if (currentSection-newCurrentSection==1 || (currentSection==0 && newCurrentSection==sectionCount-1)) {
+            //MOVED ONE SECTION DOWN!
             // Make the old previous page the new current page
             // set the current section
             self.currentSection = self.previousSectionViewController.currentSection;
@@ -84,11 +89,22 @@
             //this has a new previous section, re image it
             int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
             [previousSectionViewController setSection: previousSection];
+            CGPoint offset = CGPointMake(self.previousSectionViewController.scrollView.contentOffset.x, 
+                                         self.previousSectionViewController.view.frame.size.height*offsets[previousSection]);
+            [previousSectionViewController.scrollView setContentOffset:offset animated:NO];
+            
+            //Set to offset of the current section too
+            offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
+                                         self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
+            [currentSectionViewController.scrollView setContentOffset:offset animated:YES];
+            
             
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
+            
         } else if (newCurrentSection-currentSection == 1 || (newCurrentSection==0 && currentSection==sectionCount-1)){
+            //MOVED ONE SECTION UP!
             // Make the old next page the new current page
             // set the current section
             self.currentSection = self.nextSectionViewController.currentSection;
@@ -111,16 +127,61 @@
             //this new view has a new next section, re image it
             int nextSection = (currentSection + 1) % sectionCount;
             [nextSectionViewController setSection: nextSection];
+            CGPoint offset = CGPointMake(self.nextSectionViewController.scrollView.contentOffset.x, 
+                                         self.nextSectionViewController.view.frame.size.height*offsets[nextSection]);
+            [nextSectionViewController.scrollView setContentOffset:offset animated:NO];
+            
+            //Set to offset of the current section too
+            offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
+                                 self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
+            [currentSectionViewController.scrollView setContentOffset:offset animated:YES];
+            
             
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
         } else {
-            //previous has chapter one, the other two we need to redo!
+            /*
+            //swap the controler for prev and current
+            JFSectionViewController *controller;
+            controller = self.previousSectionViewController;
+            self.previousSectionViewController = self.currentSectionViewController;
+            self.currentSectionViewController = controller;
+            
+            //change the offset of the viewing rectangles
+            //we do not need to move y origins because they are re-generated
+            self.previousSectionViewController.scrollView.frame = 
+            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
+            self.currentSectionViewController.scrollView.frame = 
+            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
+            */
+            //MADE A MESS
+            currentSection = newCurrentSection;
+            //set the previous section
+            int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
+            [previousSectionViewController setSection: previousSection];
+            CGPoint offset = CGPointMake(self.previousSectionViewController.scrollView.contentOffset.x, 
+                                         self.previousSectionViewController.view.frame.size.height*offsets[previousSection]);
+            [previousSectionViewController.scrollView setContentOffset:offset animated:NO];
+            
+            //set the next section
+            int nextSection = (currentSection + 1) % sectionCount;
+            [nextSectionViewController setSection: nextSection];
+            offset = CGPointMake(self.nextSectionViewController.scrollView.contentOffset.x, 
+                                         self.nextSectionViewController.view.frame.size.height*offsets[nextSection]);
+            [nextSectionViewController.scrollView setContentOffset:offset animated:NO];
             
             //set the current section
-            self.currentSection = self.previousSectionViewController.currentSection;
+            [currentSectionViewController setSection: currentSection];
+            offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
+                                 self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
+            [currentSectionViewController.scrollView setContentOffset:offset animated:YES];
             
+            
+            //reset the view frame
+            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
+                                         self.view.frame.size.width, self.view.frame.size.height );
+            /*/
             //swap the controler for prev and current
             JFSectionViewController *controller;
             controller = self.previousSectionViewController;
@@ -146,8 +207,14 @@
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
+            /**/
+             
         }
         //now we just need to refresh everything!
+        /*
+        CGPoint offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
+                                     self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
+        [currentSectionViewController.scrollView setContentOffset:offset animated:YES];*/
         [self.view setNeedsDisplay];
     }
 }
@@ -228,70 +295,63 @@
     [nextSectionViewController setSection: nextSection];
     
     [delegate registerPaigingViewController: self];
+    
+    //YOU NEED TO CREATE OFFSET ARRAY HERE!
+    //TODO: WE WILL START WITH ALL AT ZERO, but this should be persistent...
+    offsets = malloc((sectionCount)*sizeof(float));
+    for (int i=0; i<sectionCount; i++){
+        offsets[i] = 0.f;
+    }
 }
 
 - (void)pageDown:(id)sender
 {
-    newCurrentSection = self.nextSectionViewController.currentSection;
-    CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
-
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:.25];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [self.view setFrame: CGRectMake( nextPageOrigin, self.view.frame.origin.y,
-                                        self.view.frame.size.width, self.view.frame.size.height )];
-    [UIView setAnimationDelegate: self];
-    [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-    
-    [UIView commitAnimations];
+    int sect = self.nextSectionViewController.currentSection;
+    [self setSection:sect withOffset:0.0];
 }
 
 - (void)pageUp:(id)sender
 {
-    newCurrentSection = self.previousSectionViewController.currentSection;
-    CGFloat previousPageOrigin = 0;
-    
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:.25];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
-                                    self.view.frame.size.width, self.view.frame.size.height )];
-    [UIView setAnimationDelegate: self];
-    [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-    
-    [UIView commitAnimations];
+    int sect = self.previousSectionViewController.currentSection;
+    [self setSection:sect withOffset:0.0];
 }
 
 - (IBAction)home:(id)sender {
     if (self.currentSection != 0){
-        //the new current section wil be section 0
-        newCurrentSection = 0;
-        //the previous pan becomes home
-        [previousSectionViewController setSection: 0];        
-        
-        //the rest of this looks a lot like page up!
-        CGFloat previousPageOrigin = 0;
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:.25];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
-                                        self.view.frame.size.width, self.view.frame.size.height )];
-        [UIView setAnimationDelegate: self];
-        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-        [UIView commitAnimations];
+        [self setSection:0 withOffset:0.0];
     }//else, there is no where to go to
 }
 
+-(BOOL) isToTheRight: (int)newCurrent of:(int)current withTotal:(int)total{
+    return (current<newCurrent && !(current==0 && newCurrent==total-1))
+            || (current==total-1 && newCurrent==0);
+}
 
-- (void) setSection: (int) newSection{
-    if (self.currentSection < newSection){
+-(BOOL) isToTheLeftt: (int)newCurrent of:(int)current withTotal:(int)total{
+    return (current>newCurrent && !(current==total-1 && newCurrent==0))
+            || (current==0 && newCurrent==total-1);
+}
+
+
+- (void) setSection: (int)newSection withOffset:(float)offset{
+    
+    //get section count for the correct refresh
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    if ([self isToTheRight:newSection of:self.currentSection withTotal:sectionCount]){
         //move forward
         //the new current section wil be the given section
         newCurrentSection = newSection;
         //the next pan becomes home
-        [nextSectionViewController setSection: newSection];  
+        [nextSectionViewController setSection: newSection];
+        float totalHeight = nextSectionViewController.view.frame.size.height;
+        float windowHeight = nextSectionViewController.scrollView.frame.size.height;
         
+        float screenOffset = (totalHeight)*offset;
+        if (screenOffset > totalHeight-windowHeight){
+            screenOffset = (totalHeight-windowHeight);
+        } 
+        offsets[newSection]=screenOffset/totalHeight;
         //the rest of this looks a lot like a page down
         CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
         
@@ -304,13 +364,22 @@
         [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
         
         [UIView commitAnimations];
-    } else if (self.currentSection > newSection){
+    } else if ([self isToTheLeftt:newSection of:self.currentSection withTotal:sectionCount]){
         //move back
         //the new current section wil be section newSection
         newCurrentSection = newSection;
         //the previous pan becomes home
-        [previousSectionViewController setSection: newSection];        
-        
+        [previousSectionViewController setSection: newSection ];//withOffset:offset];        
+
+        float totalHeight = previousSectionViewController.view.frame.size.height;
+        float windowHeight = previousSectionViewController.scrollView.frame.size.height;
+
+        float screenOffset = (totalHeight)*offset;
+        if (screenOffset > totalHeight-windowHeight){
+            screenOffset = (totalHeight-windowHeight);
+        } 
+        offsets[newSection]=screenOffset/totalHeight;
+                
         //the rest of this looks a lot like page up!
         CGFloat previousPageOrigin = 0;
         [UIView beginAnimations:nil context:NULL];
@@ -321,7 +390,21 @@
         [UIView setAnimationDelegate: self];
         [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
         [UIView commitAnimations];
-    }//else we stay put
+    } else{
+        //We are in the same section, but we need to scroll to the pinched site
+        float totalHeight = currentSectionViewController.view.frame.size.height;
+        float windowHeight = currentSectionViewController.scrollView.frame.size.height;
+        
+        float screenOffset = (totalHeight)*offset;
+        if (screenOffset > totalHeight-windowHeight){
+            screenOffset = (totalHeight-windowHeight);
+        } 
+        offsets[newSection]=screenOffset/totalHeight;
+        CGPoint pointOffset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
+                             self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
+        [currentSectionViewController.scrollView setContentOffset:pointOffset animated:YES];
+        [self.view setNeedsDisplay];
+    }
 }
 
 #pragma mark - View lifecycle
