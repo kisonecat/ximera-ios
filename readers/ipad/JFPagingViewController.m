@@ -307,18 +307,18 @@
 - (void)pageDown:(id)sender
 {
     int sect = self.nextSectionViewController.currentSection;
-    [self setSection:sect withOffset:0.0];
+    [self setSection:sect];
 }
 
 - (void)pageUp:(id)sender
 {
     int sect = self.previousSectionViewController.currentSection;
-    [self setSection:sect withOffset:0.0];
+    [self setSection:sect];
 }
 
 - (IBAction)home:(id)sender {
     if (self.currentSection != 0){
-        [self setSection:0 withOffset:0.0];
+        [self setSection:0];
     }//else, there is no where to go to
 }
 
@@ -330,6 +330,51 @@
 -(BOOL) isToTheLeftt: (int)newCurrent of:(int)current withTotal:(int)total{
     return (current>newCurrent && !(current==total-1 && newCurrent==0))
             || (current==0 && newCurrent==total-1);
+}
+
+
+- (void) setSection: (int)newSection{
+    
+    //get section count for the correct refresh
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    if ([self isToTheRight:newSection of:self.currentSection withTotal:sectionCount]){
+        //move forward
+        //the new current section wil be the given section
+        newCurrentSection = newSection;
+        //the next pan becomes home
+        [nextSectionViewController setSection: newSection];
+        
+        //the rest of this looks a lot like a page down
+        CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( nextPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        
+        [UIView commitAnimations];
+    } else if ([self isToTheLeftt:newSection of:self.currentSection withTotal:sectionCount]){
+        //move back
+        //the new current section wil be section newSection
+        newCurrentSection = newSection;
+        //the previous pan becomes home
+        [previousSectionViewController setSection: newSection ];//withOffset:offset];        
+        
+        //the rest of this looks a lot like page up!
+        CGFloat previousPageOrigin = 0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        [UIView commitAnimations];
+    } 
 }
 
 
@@ -347,10 +392,12 @@
         float totalHeight = nextSectionViewController.view.frame.size.height;
         float windowHeight = nextSectionViewController.scrollView.frame.size.height;
         
-        float screenOffset = (totalHeight)*offset;
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
         offsets[newSection]=screenOffset/totalHeight;
         //the rest of this looks a lot like a page down
         CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
@@ -373,11 +420,13 @@
 
         float totalHeight = previousSectionViewController.view.frame.size.height;
         float windowHeight = previousSectionViewController.scrollView.frame.size.height;
-
-        float screenOffset = (totalHeight)*offset;
+        
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
         offsets[newSection]=screenOffset/totalHeight;
                 
         //the rest of this looks a lot like page up!
@@ -395,10 +444,13 @@
         float totalHeight = currentSectionViewController.view.frame.size.height;
         float windowHeight = currentSectionViewController.scrollView.frame.size.height;
         
-        float screenOffset = (totalHeight)*offset;
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
+        
         offsets[newSection]=screenOffset/totalHeight;
         CGPoint pointOffset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
                              self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
