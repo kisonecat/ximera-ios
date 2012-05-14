@@ -52,7 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "451"
          endingLineNumber = "451"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-setSection:withOffset:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "450"
          endingLineNumber = "450"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-setSection:withOffset:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

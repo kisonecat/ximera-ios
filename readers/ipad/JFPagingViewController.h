@@ -16,7 +16,6 @@
     
     int currentSection;
     int newCurrentSection;
-    
     UIAlertView *alert;
     UITextField* textfield;
     UIAlertView *alertView1;
@@ -24,10 +23,7 @@
     NSInteger totalButton;
     //int totalButton;
     
-    
-
-    
-    
+    float* offsets;
 }
 
 @property (nonatomic, retain) IBOutlet JFSectionViewController *currentSectionViewController; 
@@ -56,7 +52,7 @@
 - (IBAction)link:(id)sender;
 
 - (void) setSection: (int) newSection;
-
+- (void) setSection: (int)newSection withOffset:(float)offset;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

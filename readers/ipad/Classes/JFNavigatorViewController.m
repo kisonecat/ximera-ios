@@ -138,8 +138,11 @@
         while (yBoundaries[section+1]<y){
             section ++;
         }
+        //the 
+        float offset = ((float)(y - yBoundaries[section]))  /
+                            ((float)(yBoundaries[section+1] - yBoundaries[section]));
         JFPagingViewController* pager = [delegate getPagingViewController];
-        [pager setSection: section];
+        [pager setSection : section withOffset : offset];
     }
 }
 @end

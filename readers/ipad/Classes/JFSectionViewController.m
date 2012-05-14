@@ -113,6 +113,24 @@
     }
 }
 
+/*
+- (void)setSection:(int)aSection withOffset:(float)offset{
+    //First get the section content right
+    [self setSection:aSection];
+    //then move the  scrollwiew to the correct place
+    CGFloat maxScreenY = self.scrollView.frame.size.height;
+    CGFloat sectionLength = self.content.frame.size.height;
+    //TODO tweak this, it is not great
+    CGFloat currentStartY = (sectionLength - maxScreenY) * offset;
+    if (currentStartY < 0){
+        currentStartY = 0;
+    }
+    if (currentStartY > sectionLength - maxScreenY){
+        currentStartY = sectionLength - maxScreenY;
+    }
+}
+*/
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     isDragging = YES;
