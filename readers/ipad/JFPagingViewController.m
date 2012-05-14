@@ -10,9 +10,13 @@
 #import "textbookAppDelegate.h"
 
 @implementation JFPagingViewController
+@synthesize thirdButton;
+@synthesize firstWebButton;
+@synthesize secondButton ,totalButton;
 
 @synthesize previousSectionViewController, nextSectionViewController, currentSectionViewController;
 @synthesize currentSection;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +29,9 @@
 
 - (void)dealloc
 {
+    [firstWebButton release];
+    [secondButton release];
+    [thirdButton release];
     [super dealloc];
 }
 
@@ -333,6 +340,140 @@
 }
 */
 
+//implementing the plus button on the book spine
+
+
+
+-(IBAction)popButton{
+    
+    UIAlertView *firstAlertView = [[UIAlertView alloc] initWithTitle:@"Menu" message:@"Select the one" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add Web Link( Atmost 3)", @"Add Index" ,nil];
+    [firstAlertView setTag: 0];
+
+    [firstAlertView show];
+    
+}  
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    switch (alertView.tag)
+    {
+        case 0: /* firstAlert */
+        {
+
+    
+    //  if (buttonIndex ==0){
+    
+    //  UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"website" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    
+    //  alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    
+    // [alertView1 addTextFieldWithValue:@""label:@"Enter the web address"];
+    
+    
+    //  } 
+    
+    
+    if (buttonIndex ==1){
+        
+        alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Web Link" message:@"Enter web address in the format of http://www.abc.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+     
+         [alertView1 setTag: 1];
+         [alertView1 show];
+      
+       }   
+    
+    
+    if (buttonIndex ==2){
+        
+       //  [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"http://www.google.com"]];
+        
+     /*   UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Video" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+        
+        [alertView1 show]; */
+    }
+}
+            break;
+            
+        case 1: {
+                       
+            if (buttonIndex ==1){
+                // NSLog (@"%d", totalButton);
+                
+                textfield = [[UITextField alloc] init];
+                textfield = [alertView1 textFieldAtIndex:0]; 
+               
+                    
+                 @try { 
+                    // NSLog (@"%d", totalButton);
+                     if(totalButton ==0) {
+                        [firstWebButton setBackgroundColor:[UIColor clearColor]];
+                        NSArray* myArray = [[NSArray alloc] init];
+                        myArray = [textfield.text  componentsSeparatedByString:@"."];
+                        NSString* secondString = [myArray objectAtIndex:1];
+                        [firstWebButton setTitle: secondString forState:UIControlStateNormal];
+                         [firstWebButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:1];
+                        // NSLog (@"%d", totalButton);
+
+                            
+                     }else if (totalButton ==1) {
+                        // NSLog (@"%d", totalButton);
+                         [secondButton setBackgroundColor:[UIColor clearColor]];
+                         NSArray* myArray = [[NSArray alloc] init];
+                         myArray = [textfield.text  componentsSeparatedByString:@"."];
+                         NSString* secondString = [myArray objectAtIndex:1];
+                         [secondButton setTitle: secondString forState:UIControlStateNormal];
+                         [secondButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:2];
+
+                     }else if (totalButton ==2) {
+                         NSLog (@"%d", totalButton);
+                         [thirdButton setBackgroundColor:[UIColor clearColor]];
+                         NSArray* myArray = [[NSArray alloc] init];
+                         myArray = [textfield.text  componentsSeparatedByString:@"."];
+                         NSString* secondString = [myArray objectAtIndex:1];
+                         [thirdButton setTitle: secondString forState:UIControlStateNormal];
+                         [thirdButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:3];
+                         
+                     } else if (totalButton ==3) {
+                         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@" Message " message:@"You can not have more than 3 links at one session" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                         [message show]; 
+
+                     }
+
+                     
+                    
+                    }
+                    @catch (NSException *e) {
+                       
+                        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error Message " message:@"Enter the correct web Address first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                        [errorMessage show]; }
+                    }
+                }
+            
+            break;
+        }
+
+}            
+
+-(IBAction)link:(id)sender {
+
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString: textfield.text]];
+    
+    
+    
+}
+
+
+
+
+
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -345,6 +486,9 @@
     
     self.currentSection = 0;
     [self setupSectionViews];
+    [self setTotalButton:0];
+    
+    
 }
 
 - (void)viewDidUnload
