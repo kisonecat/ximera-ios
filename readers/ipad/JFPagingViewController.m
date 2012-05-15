@@ -10,9 +10,13 @@
 #import "textbookAppDelegate.h"
 
 @implementation JFPagingViewController
+@synthesize thirdButton;
+@synthesize firstWebButton;
+@synthesize secondButton ,totalButton;
 
 @synthesize previousSectionViewController, nextSectionViewController, currentSectionViewController;
 @synthesize currentSection;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +29,9 @@
 
 - (void)dealloc
 {
+    [firstWebButton release];
+    [secondButton release];
+    [thirdButton release];
     [super dealloc];
 }
 
@@ -141,20 +148,6 @@
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
         } else {
-            /*
-            //swap the controler for prev and current
-            JFSectionViewController *controller;
-            controller = self.previousSectionViewController;
-            self.previousSectionViewController = self.currentSectionViewController;
-            self.currentSectionViewController = controller;
-            
-            //change the offset of the viewing rectangles
-            //we do not need to move y origins because they are re-generated
-            self.previousSectionViewController.scrollView.frame = 
-            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
-            self.currentSectionViewController.scrollView.frame = 
-            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
-            */
             //MADE A MESS
             currentSection = newCurrentSection;
             //set the previous section
@@ -181,40 +174,9 @@
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
-            /*/
-            //swap the controler for prev and current
-            JFSectionViewController *controller;
-            controller = self.previousSectionViewController;
-            self.previousSectionViewController = self.currentSectionViewController;
-            self.currentSectionViewController = controller;
-            
-            //change the offset of the viewing rectangles
-            //we do not need to move y origins because they are re-generated
-            self.previousSectionViewController.scrollView.frame = 
-            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
-            self.currentSectionViewController.scrollView.frame = 
-            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
-            
-            
-            //this has a new previous section, re image it
-            int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
-            [previousSectionViewController setSection: previousSection];
-            
-            //this new view has a new next section, re image it
-            int nextSection = (currentSection + 1) % sectionCount;
-            [nextSectionViewController setSection: nextSection];
-            
-            //reset the view frame
-            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
-                                         self.view.frame.size.width, self.view.frame.size.height );
-            /**/
              
         }
         //now we just need to refresh everything!
-        /*
-        CGPoint offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
-                                     self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
-        [currentSectionViewController.scrollView setContentOffset:offset animated:YES];*/
         [self.view setNeedsDisplay];
     }
 }
@@ -307,18 +269,18 @@
 - (void)pageDown:(id)sender
 {
     int sect = self.nextSectionViewController.currentSection;
-    [self setSection:sect withOffset:0.0];
+    [self setSection:sect];
 }
 
 - (void)pageUp:(id)sender
 {
     int sect = self.previousSectionViewController.currentSection;
-    [self setSection:sect withOffset:0.0];
+    [self setSection:sect];
 }
 
 - (IBAction)home:(id)sender {
     if (self.currentSection != 0){
-        [self setSection:0 withOffset:0.0];
+        [self setSection:0];
     }//else, there is no where to go to
 }
 
@@ -330,6 +292,51 @@
 -(BOOL) isToTheLeftt: (int)newCurrent of:(int)current withTotal:(int)total{
     return (current>newCurrent && !(current==total-1 && newCurrent==0))
             || (current==0 && newCurrent==total-1);
+}
+
+
+- (void) setSection: (int)newSection{
+    
+    //get section count for the correct refresh
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    if ([self isToTheRight:newSection of:self.currentSection withTotal:sectionCount]){
+        //move forward
+        //the new current section wil be the given section
+        newCurrentSection = newSection;
+        //the next pan becomes home
+        [nextSectionViewController setSection: newSection];
+        
+        //the rest of this looks a lot like a page down
+        CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( nextPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        
+        [UIView commitAnimations];
+    } else if ([self isToTheLeftt:newSection of:self.currentSection withTotal:sectionCount]){
+        //move back
+        //the new current section wil be section newSection
+        newCurrentSection = newSection;
+        //the previous pan becomes home
+        [previousSectionViewController setSection: newSection ];//withOffset:offset];        
+        
+        //the rest of this looks a lot like page up!
+        CGFloat previousPageOrigin = 0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.25];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [self.view setFrame: CGRectMake( previousPageOrigin, self.view.frame.origin.y,
+                                        self.view.frame.size.width, self.view.frame.size.height )];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
+        [UIView commitAnimations];
+    } 
 }
 
 
@@ -347,10 +354,12 @@
         float totalHeight = nextSectionViewController.view.frame.size.height;
         float windowHeight = nextSectionViewController.scrollView.frame.size.height;
         
-        float screenOffset = (totalHeight)*offset;
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
         offsets[newSection]=screenOffset/totalHeight;
         //the rest of this looks a lot like a page down
         CGFloat nextPageOrigin = -(self.previousSectionViewController.view.frame.size.width + self.currentSectionViewController.view.frame.size.width);
@@ -373,11 +382,13 @@
 
         float totalHeight = previousSectionViewController.view.frame.size.height;
         float windowHeight = previousSectionViewController.scrollView.frame.size.height;
-
-        float screenOffset = (totalHeight)*offset;
+        
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
         offsets[newSection]=screenOffset/totalHeight;
                 
         //the rest of this looks a lot like page up!
@@ -395,10 +406,13 @@
         float totalHeight = currentSectionViewController.view.frame.size.height;
         float windowHeight = currentSectionViewController.scrollView.frame.size.height;
         
-        float screenOffset = (totalHeight)*offset;
+        float screenOffset = (totalHeight)*offset-(0.3333)*windowHeight;
         if (screenOffset > totalHeight-windowHeight){
             screenOffset = (totalHeight-windowHeight);
-        } 
+        } else if (screenOffset < 0) {
+            screenOffset = 0;
+        }
+        
         offsets[newSection]=screenOffset/totalHeight;
         CGPoint pointOffset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
                              self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
@@ -416,6 +430,140 @@
 }
 */
 
+//implementing the plus button on the book spine
+
+
+
+-(IBAction)popButton{
+    
+    UIAlertView *firstAlertView = [[UIAlertView alloc] initWithTitle:@"Menu" message:@"Select the one" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add Web Link( Atmost 3)", @"Add Index" ,nil];
+    [firstAlertView setTag: 0];
+
+    [firstAlertView show];
+    
+}  
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    switch (alertView.tag)
+    {
+        case 0: /* firstAlert */
+        {
+
+    
+    //  if (buttonIndex ==0){
+    
+    //  UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"website" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    
+    //  alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    
+    // [alertView1 addTextFieldWithValue:@""label:@"Enter the web address"];
+    
+    
+    //  } 
+    
+    
+    if (buttonIndex ==1){
+        
+        alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Web Link" message:@"Enter web address in the format of http://www.abc.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+     
+         [alertView1 setTag: 1];
+         [alertView1 show];
+      
+       }   
+    
+    
+    if (buttonIndex ==2){
+        
+       //  [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"http://www.google.com"]];
+        
+     /*   UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Video" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+        
+        [alertView1 show]; */
+    }
+}
+            break;
+            
+        case 1: {
+                       
+            if (buttonIndex ==1){
+                // NSLog (@"%d", totalButton);
+                
+                textfield = [[UITextField alloc] init];
+                textfield = [alertView1 textFieldAtIndex:0]; 
+               
+                    
+                 @try { 
+                    // NSLog (@"%d", totalButton);
+                     if(totalButton ==0) {
+                        [firstWebButton setBackgroundColor:[UIColor clearColor]];
+                        NSArray* myArray = [[NSArray alloc] init];
+                        myArray = [textfield.text  componentsSeparatedByString:@"."];
+                        NSString* secondString = [myArray objectAtIndex:1];
+                        [firstWebButton setTitle: secondString forState:UIControlStateNormal];
+                         [firstWebButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:1];
+                        // NSLog (@"%d", totalButton);
+
+                            
+                     }else if (totalButton ==1) {
+                        // NSLog (@"%d", totalButton);
+                         [secondButton setBackgroundColor:[UIColor clearColor]];
+                         NSArray* myArray = [[NSArray alloc] init];
+                         myArray = [textfield.text  componentsSeparatedByString:@"."];
+                         NSString* secondString = [myArray objectAtIndex:1];
+                         [secondButton setTitle: secondString forState:UIControlStateNormal];
+                         [secondButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:2];
+
+                     }else if (totalButton ==2) {
+                         NSLog (@"%d", totalButton);
+                         [thirdButton setBackgroundColor:[UIColor clearColor]];
+                         NSArray* myArray = [[NSArray alloc] init];
+                         myArray = [textfield.text  componentsSeparatedByString:@"."];
+                         NSString* secondString = [myArray objectAtIndex:1];
+                         [thirdButton setTitle: secondString forState:UIControlStateNormal];
+                         [thirdButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
+                         [self setTotalButton:3];
+                         
+                     } else if (totalButton ==3) {
+                         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@" Message " message:@"You can not have more than 3 links at one session" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                         [message show]; 
+
+                     }
+
+                     
+                    
+                    }
+                    @catch (NSException *e) {
+                       
+                        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error Message " message:@"Enter the correct web Address first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                        [errorMessage show]; }
+                    }
+                }
+            
+            break;
+        }
+
+}            
+
+-(IBAction)link:(id)sender {
+
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString: textfield.text]];
+    
+    
+    
+}
+
+
+
+
+
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -428,6 +576,9 @@
     
     self.currentSection = 0;
     [self setupSectionViews];
+    [self setTotalButton:0];
+    
+    
 }
 
 - (void)viewDidUnload
