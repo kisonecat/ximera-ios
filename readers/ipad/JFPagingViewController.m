@@ -148,20 +148,6 @@
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
         } else {
-            /*
-            //swap the controler for prev and current
-            JFSectionViewController *controller;
-            controller = self.previousSectionViewController;
-            self.previousSectionViewController = self.currentSectionViewController;
-            self.currentSectionViewController = controller;
-            
-            //change the offset of the viewing rectangles
-            //we do not need to move y origins because they are re-generated
-            self.previousSectionViewController.scrollView.frame = 
-            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
-            self.currentSectionViewController.scrollView.frame = 
-            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
-            */
             //MADE A MESS
             currentSection = newCurrentSection;
             //set the previous section
@@ -188,40 +174,9 @@
             //reset the view frame
             self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
                                          self.view.frame.size.width, self.view.frame.size.height );
-            /*/
-            //swap the controler for prev and current
-            JFSectionViewController *controller;
-            controller = self.previousSectionViewController;
-            self.previousSectionViewController = self.currentSectionViewController;
-            self.currentSectionViewController = controller;
-            
-            //change the offset of the viewing rectangles
-            //we do not need to move y origins because they are re-generated
-            self.previousSectionViewController.scrollView.frame = 
-            CGRectOffset(self.previousSectionViewController.scrollView.frame, prevStart-currStart, 0);
-            self.currentSectionViewController.scrollView.frame = 
-            CGRectOffset(self.currentSectionViewController.scrollView.frame, currStart-prevStart, 0);
-            
-            
-            //this has a new previous section, re image it
-            int previousSection = (currentSection - 1 + sectionCount) % sectionCount;
-            [previousSectionViewController setSection: previousSection];
-            
-            //this new view has a new next section, re image it
-            int nextSection = (currentSection + 1) % sectionCount;
-            [nextSectionViewController setSection: nextSection];
-            
-            //reset the view frame
-            self.view.frame = CGRectMake(currentPageOrigin, self.view.frame.origin.y,
-                                         self.view.frame.size.width, self.view.frame.size.height );
-            /**/
              
         }
         //now we just need to refresh everything!
-        /*
-        CGPoint offset = CGPointMake(self.currentSectionViewController.scrollView.contentOffset.x, 
-                                     self.currentSectionViewController.view.frame.size.height*offsets[currentSection]);
-        [currentSectionViewController.scrollView setContentOffset:offset animated:YES];*/
         [self.view setNeedsDisplay];
     }
 }
