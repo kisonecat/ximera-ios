@@ -560,43 +560,6 @@
 
 
 
-- (IBAction)clicksnap:(id)sender
-{
-    /* UIGraphicsBeginImageContext(self.view.bounds.size);
-     
-     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-     
-     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
-     
-     UIGraphicsEndImageContext();
-     
-     UIImageWriteToSavedPhotosAlbum(screenshotImage, nil, nil, nil); */
-	
-	CGRect screenRect = [[UIScreen mainScreen] bounds];
-	UIGraphicsBeginImageContext(screenRect.size);
-	
-	CGContextRef ctx = UIGraphicsGetCurrentContext();
-	[[UIColor blackColor] set];
-	CGContextFillRect(ctx, screenRect);
-	
-	[self.view.layer renderInContext:ctx];
-	
-	UIImage *screenImage = UIGraphicsGetImageFromCurrentImageContext();
-	// set the coordinates in place of nil.......to get the selected screenshot//
-	UIImageWriteToSavedPhotosAlbum(screenImage, nil, nil, nil);
-	//fill cordinat in place of nil if u want only image comes and not button......ok this code is to get full screen screenshot//
-	UIGraphicsEndImageContext();	
-	
-	UIAlertView *alerts = [[UIAlertView alloc]
-						  initWithTitle: @""
-						  message: @"Snapshot saved successfully to the Photo Gallery"
-						  delegate: nil
-						  cancelButtonTitle:@"OK"
-						  otherButtonTitles:nil];
-	[alerts show];
-	[alerts release];
-	
-}
 
 
 
