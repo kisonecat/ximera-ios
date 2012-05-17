@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
+		<string key="IBDocument.SystemVersion">11D50</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
@@ -254,7 +254,7 @@
 							<object class="IBUIButton" id="857379127">
 								<reference key="NSNextResponder" ref="259876724"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{2, 142}, {37, 28}}</string>
+								<string key="NSFrame">{{-5, 135}, {50, 37}}</string>
 								<reference key="NSSuperview" ref="259876724"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="919303191"/>
@@ -270,7 +270,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="600080004"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">snapshot.png</string>
+									<string key="NSResourceName">19-gear.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="958881778"/>
 								<reference key="IBUIFont" ref="660618990"/>
@@ -286,7 +286,6 @@
 										<string key="NSFrameSize">{200, 1004}</string>
 										<reference key="NSSuperview" ref="714639984"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -344,7 +343,7 @@
 								<string key="NSFrame">{{-12, 256}, {57, 45}}</string>
 								<reference key="NSSuperview" ref="259876724"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="884237710"/>
+								<reference key="NSNextKeyView" ref="714639984"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -365,7 +364,6 @@
 								<string key="NSFrame">{{-21, 325}, {72, 37}}</string>
 								<reference key="NSSuperview" ref="259876724"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="240469063"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -386,7 +384,6 @@
 								<string key="NSFrame">{{-17, 407}, {72, 37}}</string>
 								<reference key="NSSuperview" ref="259876724"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="159572625"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -398,31 +395,6 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="600080004"/>
-								<reference key="IBUIFontDescription" ref="768112375"/>
-								<reference key="IBUIFont" ref="660618990"/>
-							</object>
-							<object class="IBUIButton" id="159572625">
-								<reference key="NSNextResponder" ref="259876724"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{6, 953}, {29, 31}}</string>
-								<reference key="NSSuperview" ref="259876724"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="714639984"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<bool key="IBUIOpaque">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIContentHorizontalAlignment">0</int>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<reference key="IBUIHighlightedTitleColor" ref="303283857"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-								</object>
-								<reference key="IBUINormalTitleShadowColor" ref="600080004"/>
-								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">moon</string>
-								</object>
 								<reference key="IBUIFontDescription" ref="768112375"/>
 								<reference key="IBUIFont" ref="660618990"/>
 							</object>
@@ -593,15 +565,6 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">280</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">clicksnap:</string>
-						<reference key="source" ref="857379127"/>
-						<reference key="destination" ref="407779744"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">306</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -833,24 +796,6 @@
 					</object>
 					<int key="connectionID">305</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">buttonPressed</string>
-						<reference key="source" ref="159572625"/>
-						<reference key="destination" ref="626487782"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">308</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">buttonPressed</string>
-						<reference key="source" ref="159572625"/>
-						<reference key="destination" ref="186395487"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">309</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -992,17 +937,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="600993873"/>
 							<reference ref="860701597"/>
+							<reference ref="857379127"/>
 							<reference ref="114389307"/>
 							<reference ref="714639984"/>
 							<reference ref="919303191"/>
+							<reference ref="947375916"/>
 							<reference ref="884237710"/>
 							<reference ref="240469063"/>
-<<<<<<< HEAD
-							<reference ref="947375916"/>
-							<reference ref="159572625"/>
-=======
-							<reference ref="857379127"/>
->>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
 						</object>
 						<reference key="parent" ref="62075450"/>
 						<string key="objectName">Book Spine</string>
@@ -1063,11 +1004,6 @@
 						<reference key="object" ref="240469063"/>
 						<reference key="parent" ref="259876724"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">307</int>
-						<reference key="object" ref="159572625"/>
-						<reference key="parent" ref="259876724"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1108,8 +1044,6 @@
 					<string>294.IBPluginDependency</string>
 					<string>300.IBPluginDependency</string>
 					<string>303.IBPluginDependency</string>
-					<string>307.IBPluginDependency</string>
-					<string>307.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
 					<string>94.CustomClassName</string>
@@ -1154,8 +1088,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="0.0"/>
 					<string>textbookAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>JFBookSpine</string>
@@ -1177,11 +1109,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-<<<<<<< HEAD
-			<int key="maxID">309</int>
-=======
-			<int key="maxID">306</int>
->>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
+			<int key="maxID">305</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1228,35 +1156,14 @@
 					<string key="className">JFNavigatorViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>buttonPressed</string>
-							<string>tapped:</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>UITapGestureRecognizer</string>
-						</object>
+						<string key="NS.key.0">tapped:</string>
+						<string key="NS.object.0">UITapGestureRecognizer</string>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>buttonPressed</string>
-							<string>tapped:</string>
-						</object>
-						<object class="NSArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">buttonPressed</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">tapped:</string>
-								<string key="candidateClassName">UITapGestureRecognizer</string>
-							</object>
+						<string key="NS.key.0">tapped:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">tapped:</string>
+							<string key="candidateClassName">UITapGestureRecognizer</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1282,7 +1189,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>clicksnap:</string>
 							<string>home:</string>
 							<string>link:</string>
 							<string>pageDown:</string>
@@ -1292,7 +1198,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1305,7 +1210,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>clicksnap:</string>
 							<string>home:</string>
 							<string>link:</string>
 							<string>pageDown:</string>
@@ -1315,10 +1219,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">clicksnap:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">home:</string>
 								<string key="candidateClassName">id</string>
@@ -1421,17 +1321,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">JFSectionViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">buttonPressed</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">buttonPressed</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">buttonPressed</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -1555,25 +1444,19 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>19-gear.png</string>
 				<string>arrowleft.png</string>
 				<string>arrowright.png</string>
 				<string>house.png</string>
-				<string>moon</string>
 				<string>plus.png</string>
-				<string>snapshot.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
-<<<<<<< HEAD
 				<string>{26, 26}</string>
-				<string>{16, 16}</string>
-=======
->>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
 				<string>{98, 96}</string>
-				<string>{47, 39}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
