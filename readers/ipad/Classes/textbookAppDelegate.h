@@ -30,7 +30,7 @@
     UIWindow *window;
 	UIBarButtonItem *left;
 	UIBarButtonItem *right;
-    Boolean night;
+    
     //reference to be able to find this
     JFPagingViewController* pagingViewController;
 	
@@ -42,7 +42,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *left;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *right;
-@property (nonatomic, readwrite) Boolean night;
 
 @property (nonatomic, retain) IBOutlet JFSectionViewController *sectionViewController;
 @property (nonatomic, retain) IBOutlet JFNavigatorViewController *navigatorViewController;
