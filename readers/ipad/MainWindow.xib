@@ -254,7 +254,7 @@
 							<object class="IBUIButton" id="857379127">
 								<reference key="NSNextResponder" ref="259876724"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{-5, 135}, {50, 37}}</string>
+								<string key="NSFrame">{{2, 142}, {37, 28}}</string>
 								<reference key="NSSuperview" ref="259876724"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="919303191"/>
@@ -270,7 +270,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="600080004"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">19-gear.png</string>
+									<string key="NSResourceName">snapshot.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="958881778"/>
 								<reference key="IBUIFont" ref="660618990"/>
@@ -593,6 +593,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">280</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">clicksnap:</string>
+						<reference key="source" ref="857379127"/>
+						<reference key="destination" ref="407779744"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">306</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -983,14 +992,17 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="600993873"/>
 							<reference ref="860701597"/>
-							<reference ref="857379127"/>
 							<reference ref="114389307"/>
 							<reference ref="714639984"/>
 							<reference ref="919303191"/>
 							<reference ref="884237710"/>
 							<reference ref="240469063"/>
+<<<<<<< HEAD
 							<reference ref="947375916"/>
 							<reference ref="159572625"/>
+=======
+							<reference ref="857379127"/>
+>>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
 						</object>
 						<reference key="parent" ref="62075450"/>
 						<string key="objectName">Book Spine</string>
@@ -1165,7 +1177,11 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
+<<<<<<< HEAD
 			<int key="maxID">309</int>
+=======
+			<int key="maxID">306</int>
+>>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1266,6 +1282,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clicksnap:</string>
 							<string>home:</string>
 							<string>link:</string>
 							<string>pageDown:</string>
@@ -1275,6 +1292,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1287,6 +1305,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clicksnap:</string>
 							<string>home:</string>
 							<string>link:</string>
 							<string>pageDown:</string>
@@ -1296,6 +1315,10 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">clicksnap:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">home:</string>
 								<string key="candidateClassName">id</string>
@@ -1532,21 +1555,25 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>19-gear.png</string>
 				<string>arrowleft.png</string>
 				<string>arrowright.png</string>
 				<string>house.png</string>
 				<string>moon</string>
 				<string>plus.png</string>
+				<string>snapshot.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
+<<<<<<< HEAD
 				<string>{26, 26}</string>
 				<string>{16, 16}</string>
+=======
+>>>>>>> d4b708a6586fa30fbb801f637cfbc87e3cc32bcd
 				<string>{98, 96}</string>
+				<string>{47, 39}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
