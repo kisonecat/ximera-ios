@@ -163,8 +163,6 @@
 		3809343912FF3B3300EB0894 /* JFMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3809343812FF3B3300EB0894 /* JFMainWindow.m */; };
 		380934A512FF441600EB0894 /* JFBookSpine.m in Sources */ = {isa = PBXBuildFile; fileRef = 380934A412FF441600EB0894 /* JFBookSpine.m */; };
 		380935C612FF9A4300EB0894 /* JFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 380935C512FF9A4300EB0894 /* JFPopupView.m */; };
-		50195C55156313FE005A149D /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 50195C54156313FE005A149D /* paper.png */; };
-		50ABE9DF156451E90069D3FB /* moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ABE9DE156451E90069D3FB /* moon.png */; };
 		9CDD15A91420151D00A44879 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CDD15A81420151D00A44879 /* QuartzCore.framework */; };
 		C457728A14D08365000BE608 /* llama.png in Resources */ = {isa = PBXBuildFile; fileRef = C457728914D08365000BE608 /* llama.png */; };
 		C457728F14D0837D000BE608 /* coord_plane-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = C457728E14D0837D000BE608 /* coord_plane-trans.png */; };
@@ -349,8 +347,6 @@
 		380934A412FF441600EB0894 /* JFBookSpine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFBookSpine.m; sourceTree = "<group>"; };
 		380935C412FF9A4300EB0894 /* JFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFPopupView.h; sourceTree = "<group>"; };
 		380935C512FF9A4300EB0894 /* JFPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFPopupView.m; sourceTree = "<group>"; };
-		50195C54156313FE005A149D /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
-		50ABE9DE156451E90069D3FB /* moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* textbook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "textbook-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9CDD15A81420151D00A44879 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C457728914D08365000BE608 /* llama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = llama.png; sourceTree = "<group>"; };
@@ -399,7 +395,6 @@
 				3809343812FF3B3300EB0894 /* JFMainWindow.m */,
 				218B71D214D3449200CCE2F7 /* JFNavigatorViewController.h */,
 				218B71D314D3449300CCE2F7 /* JFNavigatorViewController.m */,
-				50195C54156313FE005A149D /* paper.png */,
 				218B71CD14D33A4200CCE2F7 /* JFSectionViewController.h */,
 				218B71CE14D33A4200CCE2F7 /* JFSectionViewController.m */,
 				218B71CA14D334A300CCE2F7 /* JFSectionView.h */,
@@ -456,7 +451,6 @@
 				CC3D7256129C3FC200A74B92 /* icons */,
 				8D1107310486CEB800E47090 /* textbook-Info.plist */,
 				CCA0BC76127F348A00A46D9C /* MainWindow.xib */,
-				50ABE9DE156451E90069D3FB /* moon.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -858,8 +852,6 @@
 				218B746114D825B800CCE2F7 /* tile004-011.png in Resources */,
 				218B74AA14D825D300CCE2F7 /* textbook.plist in Resources */,
 				2F5B3E591563057900EAF153 /* plus.png in Resources */,
-				50195C55156313FE005A149D /* paper.png in Resources */,
-				50ABE9DF156451E90069D3FB /* moon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,6 @@
 
 @interface JFSectionView : UIView {
     int section;
-    //Boolean night;
 }
 
 @property int section;
