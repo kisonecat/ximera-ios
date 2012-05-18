@@ -26,7 +26,7 @@
 @synthesize right;
 @synthesize sectionViewController, navigatorViewController;
 @synthesize bookSpine;
-
+@synthesize night;
 - (int)sectionCount
 {
     NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
@@ -52,7 +52,7 @@
 			((UIScrollView *)subview).bounces = NO;
 		}
 	}*/
-    
+    night = false;
     return YES;
 }
 

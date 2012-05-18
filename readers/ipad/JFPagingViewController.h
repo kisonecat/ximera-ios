@@ -45,6 +45,8 @@
 - (IBAction)pageUp:(id)sender;
 - (IBAction)paste:(id)sender;
 - (IBAction)home:(id)sender;
+- (IBAction)clicksnap:(id)sender;
+
 
 -(IBAction)popButton;
 //-(IBAction)link;
