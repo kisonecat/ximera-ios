@@ -287,7 +287,6 @@
 										<string key="NSFrameSize">{200, 971}</string>
 										<reference key="NSSuperview" ref="714639984"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -412,6 +411,31 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<float key="IBUIProgress">0.5</float>
+							</object>
+							<object class="IBUIButton" id="1072948730">
+								<reference key="NSNextResponder" ref="259876724"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{7, 239}, {26, 29}}</string>
+								<reference key="NSSuperview" ref="259876724"/>
+								<reference key="NSWindow"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<int key="IBUIButtonType">1</int>
+								<reference key="IBUIHighlightedTitleColor" ref="303283857"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="600080004"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">moon.png</string>
+								</object>
+								<reference key="IBUIFontDescription" ref="768112375"/>
+								<reference key="IBUIFont" ref="660618990"/>
 							</object>
 						</object>
 						<string key="NSFrame">{{528, 20}, {240, 1004}}</string>
@@ -828,6 +852,42 @@
 					</object>
 					<int key="connectionID">305</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">buttonPressed</string>
+						<reference key="source" ref="1072948730"/>
+						<reference key="destination" ref="626487782"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">310</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">buttonPressed</string>
+						<reference key="source" ref="1072948730"/>
+						<reference key="destination" ref="512400249"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">311</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">buttonPressed</string>
+						<reference key="source" ref="1072948730"/>
+						<reference key="destination" ref="208988596"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">312</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">buttonPressed</string>
+						<reference key="source" ref="1072948730"/>
+						<reference key="destination" ref="186395487"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">313</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -977,6 +1037,7 @@
 							<reference ref="240469063"/>
 							<reference ref="857379127"/>
 							<reference ref="749166002"/>
+							<reference ref="1072948730"/>
 						</object>
 						<reference key="parent" ref="62075450"/>
 						<string key="objectName">Book Spine</string>
@@ -1042,6 +1103,11 @@
 						<reference key="object" ref="749166002"/>
 						<reference key="parent" ref="259876724"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">309</int>
+						<reference key="object" ref="1072948730"/>
+						<reference key="parent" ref="259876724"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1083,6 +1149,7 @@
 					<string>300.IBPluginDependency</string>
 					<string>303.IBPluginDependency</string>
 					<string>307.IBPluginDependency</string>
+					<string>309.IBPluginDependency</string>
 					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
 					<string>94.CustomClassName</string>
@@ -1128,6 +1195,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>textbookAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>JFBookSpine</string>
@@ -1149,7 +1217,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">308</int>
+			<int key="maxID">313</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1533,6 +1601,7 @@
 				<string>arrowleft.png</string>
 				<string>arrowright.png</string>
 				<string>house.png</string>
+				<string>moon.png</string>
 				<string>plus.png</string>
 				<string>snapshot.png</string>
 			</object>
@@ -1541,6 +1610,7 @@
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
 				<string>{26, 26}</string>
+				<string>{243, 244}</string>
 				<string>{98, 96}</string>
 				<string>{47, 39}</string>
 			</object>

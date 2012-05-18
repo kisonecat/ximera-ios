@@ -81,12 +81,16 @@
     
     self.view.frame = CGRectMake(0,0,width,position);
     self.scrollView.contentSize = self.view.frame.size;
+    if(appDelegate.night == false)
      self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper.png"]];
+    else {
+        self.view.backgroundColor = [UIColor blackColor];
+    }
 }
 -(IBAction)buttonPressed{
      textbookAppDelegate *appDelegate = (textbookAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.night = true;
-    self.view.backgroundColor=[UIColor blackColor];
+    [self loadView];
 }
 - (UIImage *)negativeImage:(UIImage*)tile
 {

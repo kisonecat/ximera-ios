@@ -27,7 +27,7 @@
 -(IBAction)buttonPressed{
     textbookAppDelegate *appDelegate = (textbookAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.night = true;                                                    
-    self.view.backgroundColor=[UIColor blackColor];
+    [self setSection:currentSection];
 }
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView
@@ -64,6 +64,7 @@
 
 - (void)setSection:(int)aSection
 {
+    textbookAppDelegate *appDelegate = (textbookAppDelegate *)[[UIApplication sharedApplication] delegate];
     // Remove any old webviews
     NSArray *subviews = [[self.view subviews] copy];
     for(UIView *subview in subviews) {
@@ -81,7 +82,11 @@
     // Clear the tiled image cache
     self.view.layer.contents = nil; // turns the CATiledLayer into a CALayer
     [self.view setNeedsDisplay]; // "magically" restores the layer to a CATiledLayer?
+    if(appDelegate.night == false)
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"paper.png"]];
+    else {
+        self.view.backgroundColor = [UIColor blackColor];
+    }
     // Create any webviews that the user requested
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"textbook.plist"];
     NSArray *interactiveElements = [NSArray arrayWithContentsOfFile:path];
