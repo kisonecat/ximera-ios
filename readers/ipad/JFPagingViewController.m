@@ -183,6 +183,10 @@
 
 -(void)move:(id)sender
 {
+    
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    
 	CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view.superview];
     
     static CGRect originalFrame;
@@ -220,11 +224,24 @@
             //we are in the next? section
             newOrigin.x = previousPageOrigin;
             newCurrentSection = self.nextSectionViewController.currentSection;
+            
+            
+            int sect1 = self.nextSectionViewController.currentSection;
+            int cursect1 = sect1+1;
+            
+            float p1 = (float)cursect1/(float)sectionCount;
+            myProgressView.progress = p1;
         }
         else if (newOrigin.x >= (nextPageOrigin + currentPageOrigin)/2){
             //we are in the previous? section
             newOrigin.x = nextPageOrigin;
             newCurrentSection = self.previousSectionViewController.currentSection;
+            
+            int sect2 = self.previousSectionViewController.currentSection;
+            int cursect2 = sect2+1;
+            
+            float p2 = (float)cursect2/(float)sectionCount;
+            myProgressView.progress = p2;
         }
         else{ 
             // we are in the current section
@@ -268,19 +285,40 @@
 
 - (void)pageDown:(id)sender
 {
+    
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+
     int sect = self.nextSectionViewController.currentSection;
+    
+    int cursect = sect + 1;
+    float p = (float)cursect/(float)sectionCount;
+    myProgressView.progress = p;
+    
+    
     [self setSection:sect];
-}
+    
+    }
 
 - (void)pageUp:(id)sender
 {
+    
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    
     int sect = self.previousSectionViewController.currentSection;
+    
+    int cursect = sect + 1;
+    
+    float p = (float)cursect/(float)sectionCount;
+    myProgressView.progress = p;
     [self setSection:sect];
 }
 
 - (IBAction)home:(id)sender {
     if (self.currentSection != 0){
         [self setSection:0];
+         myProgressView.progress = 0.0;
     }//else, there is no where to go to
 }
 
@@ -614,6 +652,12 @@
     self.currentSection = 0;
     [self setupSectionViews];
     [self setTotalButton:0];
+    textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    int sectionCount = [delegate sectionCount];
+    
+    
+    float p1 = 1.0/(float)sectionCount;
+    myProgressView.progress = p1;
     
     
 }

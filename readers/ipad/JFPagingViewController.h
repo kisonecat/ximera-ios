@@ -14,6 +14,8 @@
     IBOutlet JFSectionViewController *previousSectionViewController;
     IBOutlet JFSectionViewController *nextSectionViewController;
     
+     IBOutlet UIProgressView *myProgressView;
+    
     int currentSection;
     int newCurrentSection;
     UIAlertView *alert;
