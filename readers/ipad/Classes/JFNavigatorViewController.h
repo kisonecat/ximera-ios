@@ -18,5 +18,5 @@
 @property (nonatomic, retain) IBOutlet UIScrollView * scrollView;
 
 - (IBAction)tapped:(UITapGestureRecognizer *)sender;
--(IBAction)buttonPressed;
+
 @end

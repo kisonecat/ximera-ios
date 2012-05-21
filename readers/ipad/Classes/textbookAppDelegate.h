@@ -52,5 +52,6 @@
 
 - (void)registerPaigingViewController: (JFPagingViewController *) pagingController;
 - (JFPagingViewController *) getPagingViewController;
+- (IBAction)dayNightPressed:(id)sender;
 
 @end

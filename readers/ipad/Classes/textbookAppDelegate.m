@@ -101,4 +101,21 @@
     return pagingViewController;
 }
 
+- (IBAction)dayNightPressed:(id)sender {
+    
+    //This needs to be reversible
+    night = !night;       
+    //from one of the subroutines
+    [navigatorViewController loadView];
+    [pagingViewController refresh];
+    
+    //this is in sectionViewController
+    //[self setSection:currentSection];
+    
+   // [sectionViewController loadView];
+    
+   // [pagingViewController loadView];
+    //[bookSpine loadView];
+}
+
 @end

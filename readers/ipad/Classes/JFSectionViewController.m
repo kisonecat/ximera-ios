@@ -24,11 +24,6 @@
     }
     return self;
 }
--(IBAction)buttonPressed{
-    textbookAppDelegate *appDelegate = (textbookAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.night = true;                                                    
-    [self setSection:currentSection];
-}
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView
 {

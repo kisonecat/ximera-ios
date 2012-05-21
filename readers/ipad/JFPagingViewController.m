@@ -675,4 +675,11 @@
 	return NO;
 }
 
+- (void) refresh 
+{
+    [currentSectionViewController setSection: currentSectionViewController.currentSection];
+    [previousSectionViewController setSection: previousSectionViewController.currentSection];
+    [nextSectionViewController setSection: nextSectionViewController.currentSection];
+}
+
 @end
