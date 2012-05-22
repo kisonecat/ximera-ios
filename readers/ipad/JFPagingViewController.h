@@ -57,6 +57,8 @@
 
 - (void) setSection: (int) newSection;
 - (void) setSection: (int)newSection withOffset:(float)offset;
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+- (void) refresh;
 
 @end

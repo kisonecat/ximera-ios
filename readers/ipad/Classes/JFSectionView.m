@@ -58,8 +58,9 @@
      UIImage *coloredtile = UIGraphicsGetImageFromCurrentImageContext();
      UIGraphicsEndImageContext();*/
     UIImage * aTile = [UIImage imageNamed:filename];
-    UIImage *nImage = [self negativeImage:aTile];
-    if(appDelegate.night == true){
+    if(appDelegate.night){
+        //no point in creating a negative if it is not used
+        UIImage *nImage = [self negativeImage:aTile];
         return nImage;
     }
     else {

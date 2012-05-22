@@ -87,11 +87,7 @@
         self.view.backgroundColor = [UIColor blackColor];
     }
 }
--(IBAction)buttonPressed{
-     textbookAppDelegate *appDelegate = (textbookAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.night = true;
-    [self loadView];
-}
+
 - (UIImage *)negativeImage:(UIImage*)tile
 {
     CGSize size = tile.size;
