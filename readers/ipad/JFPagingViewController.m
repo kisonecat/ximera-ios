@@ -10,9 +10,7 @@
 #import "textbookAppDelegate.h"
 
 @implementation JFPagingViewController
-@synthesize thirdButton;
-@synthesize firstWebButton;
-@synthesize secondButton ,totalButton;
+
 
 @synthesize previousSectionViewController, nextSectionViewController, currentSectionViewController;
 @synthesize currentSection;
@@ -29,9 +27,7 @@
 
 - (void)dealloc
 {
-    [firstWebButton release];
-    [secondButton release];
-    [thirdButton release];
+
     [super dealloc];
 }
 
@@ -280,6 +276,10 @@
     offsets = malloc((sectionCount)*sizeof(float));
     for (int i=0; i<sectionCount; i++){
         offsets[i] = 0.f;
+        
+        weblinks = [[NSMutableArray alloc] init];
+        weblinks1 = [[NSMutableArray alloc] init];
+
     }
 }
 
@@ -474,126 +474,132 @@
 
 -(IBAction)popButton{
     
-    UIAlertView *firstAlertView = [[UIAlertView alloc] initWithTitle:@"Menu" message:@"Select the one" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add Web Link( Atmost 3)", @"Add Index" ,nil];
+    
+    UIAlertView *firstAlertView = [[UIAlertView alloc] initWithTitle:@"Menu" message:@"Select the one" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add Web Links", @"Add notes" ,nil];
     [firstAlertView setTag: 0];
-
+    
     [firstAlertView show];
     
 }  
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     switch (alertView.tag)
     {
-        case 0: /* firstAlert */
+        case 0: /* firstAlert, shown when hitting + */
         {
+            
+            
+            if (buttonIndex ==1){
+                
+                alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Web Link" message:@"Enter web address in the format of http://www.abc.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+                alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
+                
+                [alertView1 setTag: 1];
+                [alertView1 show];
+                
+            }   
+                    
+            if (buttonIndex ==2){
+                
+                //add notes
+            }
 
-    
-    //  if (buttonIndex ==0){
-    
-    //  UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"website" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-    
-    //  alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
-    
-    // [alertView1 addTextFieldWithValue:@""label:@"Enter the web address"];
-    
-    
-    //  } 
-    
-    
-    if (buttonIndex ==1){
-        
-        alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Web Link" message:@"Enter web address in the format of http://www.abc.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
-        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
-     
-         [alertView1 setTag: 1];
-         [alertView1 show];
-      
-       }   
-    
-    
-    if (buttonIndex ==2){
-        
-       //  [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"http://www.google.com"]];
-        
-     /*   UIAlertView *alertView1 = [[UIAlertView alloc] initWithTitle:@"Add Video" message:@"This is the message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-        alertView1.alertViewStyle = UIAlertViewStylePlainTextInput;
-        
-        [alertView1 show]; */
-    }
-}
+        }
             break;
             
-        case 1: {
-                       
+        case 1: /* Adding a link? */ {
+            
             if (buttonIndex ==1){
-                // NSLog (@"%d", totalButton);
-                
                 textfield = [[UITextField alloc] init];
                 textfield = [alertView1 textFieldAtIndex:0]; 
-               
+                
+                @try { 
+                    NSArray* myArray = [[NSArray alloc] init];
+                    myArray = [textfield.text  componentsSeparatedByString:@"."];
                     
-                 @try { 
-                    // NSLog (@"%d", totalButton);
-                     if(totalButton ==0) {
-                        [firstWebButton setBackgroundColor:[UIColor clearColor]];
-                        NSArray* myArray = [[NSArray alloc] init];
-                        myArray = [textfield.text  componentsSeparatedByString:@"."];
-                        NSString* secondString = [myArray objectAtIndex:1];
-                        [firstWebButton setTitle: secondString forState:UIControlStateNormal];
-                         [firstWebButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
-                         [self setTotalButton:1];
-                        // NSLog (@"%d", totalButton);
-
+                    NSString* firstString = [myArray objectAtIndex:0];
+                    NSString* secondString = [myArray objectAtIndex:1];
+                    
+                    if(([myArray count]>=3)&&(([firstString isEqualToString:@"http://www"])||([firstString isEqualToString:@"www"]))) {
+                        
+                        if([firstString isEqualToString:@"www"]){
+                            textfield.text =[@"http://" stringByAppendingFormat:textfield.text];
+                        }
                             
-                     }else if (totalButton ==1) {
-                        // NSLog (@"%d", totalButton);
-                         [secondButton setBackgroundColor:[UIColor clearColor]];
-                         NSArray* myArray = [[NSArray alloc] init];
-                         myArray = [textfield.text  componentsSeparatedByString:@"."];
-                         NSString* secondString = [myArray objectAtIndex:1];
-                         [secondButton setTitle: secondString forState:UIControlStateNormal];
-                         [secondButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
-                         [self setTotalButton:2];
-
-                     }else if (totalButton ==2) {
-                         NSLog (@"%d", totalButton);
-                         [thirdButton setBackgroundColor:[UIColor clearColor]];
-                         NSArray* myArray = [[NSArray alloc] init];
-                         myArray = [textfield.text  componentsSeparatedByString:@"."];
-                         NSString* secondString = [myArray objectAtIndex:1];
-                         [thirdButton setTitle: secondString forState:UIControlStateNormal];
-                         [thirdButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
-                         [self setTotalButton:3];
-                         
-                     } else if (totalButton ==3) {
-                         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@" Message " message:@"You can not have more than 3 links at one session" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                         [message show]; 
-
-                     }
-
-                     
-                    
+                        [weblinks addObject:secondString];
+                        [weblinks1 addObject:textfield.text]; 
                     }
-                    @catch (NSException *e) {
-                       
+                    else {
                         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error Message " message:@"Enter the correct web Address first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-                        [errorMessage show]; }
+                        [errorMessage show]; 
                     }
+
                 }
+                @catch (NSException *e) {
+                    
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error Message " message:@"Enter the correct web Address first" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                    [errorMessage show]; }
+            }
+        }
             
             break;
+            
+        case 2: /* going to a web page */{
+            //Array index starts at 0, but button index at 0 is cancel, so we start links at 1
+            
+            if (buttonIndex >0 && buttonIndex <= [weblinks count]){
+                //we are within the array, just go to the linkk
+                //if you don't trust me google that...
+                [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[weblinks1 objectAtIndex:buttonIndex-1]]];    
+            }
+            else if ([weblinks count] == 0){
+                //we are deleting a button, and there is no things that can be deleted 
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@" Message " message:@"There is no link to delete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil]; 
+                
+                [message show];
+            }
+            else {
+                
+                UIAlertView *removeAlert = [[UIAlertView alloc] initWithTitle:@" Remove " message:@"Click on the link which you want to remove" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]; 
+                
+                for (int j = 0; j < [weblinks count]; j++) {
+                    // NSLog(@"The Array at %d index is %@",j,[weblinks objectAtIndex:j]);
+                    [removeAlert addButtonWithTitle:[weblinks objectAtIndex:j]];
+                    [removeAlert setTag:3];
+                    [removeAlert show];
+                }
+            }  
         }
+            break;
+            
+       case 3: /* remove a web link */{
+            
+            
+            [weblinks1 removeObjectAtIndex:buttonIndex-1];
+            [weblinks removeObjectAtIndex:buttonIndex-1];
 
-}            
+          }
+            break;      
+       }
+   }  
 
--(IBAction)link:(id)sender {
 
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString: textfield.text]];
+- (IBAction)linkMenu:(id)sender {
+    
+    webMenuAlertView = [[UIAlertView alloc] initWithTitle:@"Go to the web site" message:@"click button" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [webMenuAlertView setTag: 2];
+    
+    int i;
+    for (i = 0; i < [weblinks count]; i++) {
+        [webMenuAlertView addButtonWithTitle:[weblinks objectAtIndex:i]];
+    }
+    [webMenuAlertView addButtonWithTitle:@"Delete Link"];
+    [webMenuAlertView show];
+
     
     
-    
+
 }
 
 
@@ -651,7 +657,6 @@
     
     self.currentSection = 0;
     [self setupSectionViews];
-    [self setTotalButton:0];
     textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     int sectionCount = [delegate sectionCount];
     

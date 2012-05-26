@@ -8,44 +8,46 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.h"
-         timestampString = "358662421.205598"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-setSection:"
-         landmarkType = "4">
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "@interface JFPagingViewController"
+         landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.h"
-         timestampString = "358662421.205598"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61">
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "@interface JFPagingViewController"
+         landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.h"
-         timestampString = "358662421.205598"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
-         landmarkType = "4">
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "@interface JFPagingViewController"
+         landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.m"
-         timestampString = "358663368.109656"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "451"
@@ -58,7 +60,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.m"
-         timestampString = "358663368.109656"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "450"
@@ -71,39 +73,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JFPagingViewController.h"
-         timestampString = "358662421.205598"
+         timestampString = "359734376.521051"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
-         landmarkName = "@interface JFPagingViewController"
-         landmarkType = "2">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JFPagingViewController.h"
-         timestampString = "358641159.721404"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "thirdButton"
-         landmarkType = "19">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JFPagingViewController.h"
-         timestampString = "358662421.205598"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
-         landmarkName = "-home:"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-pageUp:"
          landmarkType = "4">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JFPagingViewController.m"
+         timestampString = "359734376.521051"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "527"
+         endingLineNumber = "527"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
