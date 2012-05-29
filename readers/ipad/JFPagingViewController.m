@@ -552,16 +552,21 @@
                 //we are within the array, just go to the linkk
                 //if you don't trust me google that...
                 [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[weblinks1 objectAtIndex:buttonIndex-1]]];    
+            } 
+            else if (buttonIndex == 0){
+                
             }
             else if ([weblinks count] == 0){
+
                 //we are deleting a button, and there is no things that can be deleted 
                 UIAlertView *message = [[UIAlertView alloc] initWithTitle:@" Message " message:@"There is no link to delete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil]; 
                 
                 [message show];
+                
             }
             else {
                 
-                UIAlertView *removeAlert = [[UIAlertView alloc] initWithTitle:@" Remove " message:@"Click on the link which you want to remove" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]; 
+                UIAlertView *removeAlert = [[UIAlertView alloc] initWithTitle:@" Remove " message:@"Click on the link which you want to remove" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil]; 
                 
                 for (int j = 0; j < [weblinks count]; j++) {
                     // NSLog(@"The Array at %d index is %@",j,[weblinks objectAtIndex:j]);
@@ -574,10 +579,10 @@
             break;
             
        case 3: /* remove a web link */{
-            
+           if(buttonIndex !=0){ 
             
             [weblinks1 removeObjectAtIndex:buttonIndex-1];
-            [weblinks removeObjectAtIndex:buttonIndex-1];
+               [weblinks removeObjectAtIndex:buttonIndex-1];}
 
           }
             break;      
