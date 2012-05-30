@@ -27,7 +27,10 @@
 
 - (void)dealloc
 {
-
+    free (offsets);
+    [firstWebButton release];
+    [secondButton release];
+    [thirdButton release];
     [super dealloc];
 }
 
