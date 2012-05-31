@@ -10,7 +10,7 @@ Conversion:
 * Correct size for interactive. Currently the interactives are in a fixed size window.
 * correct location for interactives. They should probably be centered on the screen by default. 
 * add a \includevide{http://link} to the styles that the author can use to link to a YouTube video.
-* Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow.” We need this process to be somewhat flexable with respect to the resolution of the device. 
+* ~~Use wallpaper -- also have a (semi random) transparent mask at the edges... this will make it “glow.” We need this process to be somewhat flexable with respect to the resolution of the device. ~~
 * Enable searching
 * Eventually, we may want to use the STIX fonts. 
 * ~~Wang tiles for background.... background that changes as you get deeper in to the text. See: http://en.wikipedia.org/wiki/Wang_tile~~
@@ -53,6 +53,7 @@ Interactives:
 * movie whose rate is controled by a swipe (this is essentially a generic description for an interactive that could be used a lot)
 * incorperate scanned work
 * show inductive patterns, a truss of arbitrary length.
+* use JSX (faster JavaScript) http://jsx.github.com/
 * use Raphael.js http://raphaeljs.com/
 * use d3.js http://mbostock.github.com/d3/
 * use processing.js http://processing.org
