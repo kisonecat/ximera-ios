@@ -28,9 +28,6 @@
 - (void)dealloc
 {
     free (offsets);
-    [firstWebButton release];
-    [secondButton release];
-    [thirdButton release];
     [super dealloc];
 }
 
@@ -321,7 +318,13 @@
 - (IBAction)home:(id)sender {
     if (self.currentSection != 0){
         [self setSection:0];
-         myProgressView.progress = 0.0;
+        
+        textbookAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        int sectionCount = [delegate sectionCount];
+        
+         float p = (float)sectionCount;
+        
+         myProgressView.progress = 1.0/p;
     }//else, there is no where to go to
 }
 
