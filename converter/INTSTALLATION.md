@@ -131,21 +131,26 @@ Installing Pngcrush
 
    `make` 
 
-   `sudo mv pngcrush /user/local/bin`
+   `sudo mv pngcrush /usr/local/bin/`
 
-   The make command compiles the code. Next line move the executable
+   The make command compiles the code. Next line moves the executable
    to /usr/local/bin. It does not matter where you move the compiled
    executable, but we recommend that you put it in a place within your
    environment’s path.
-
-   Note: where to put the pngcrush folder : After downloading and
-   unzipping the pngcrush, rename the folder as pngcrush.  It should
-   be put inside the ximera/converter directory.
 
 
 Installing MuPDF
 ----------------
 
+To start, go to the top of your ximera directory structure. Type:
+
+`git submodule init`
+
+and then
+
+`git submodule update`
+
+This should pull the mupdf code from the MuPDF repository.  
 In order to install mupdf you will need several third party libraries:
 freetype2, jbig2dec, libjpeg, openjpeg, and zlib. There is a package
 (mupdf-thirdparty.zip) that you can unzip in the mupdf source tree if
@@ -155,9 +160,7 @@ Download:
 
 http://code.google.com/p/mupdf/downloads/list?q=source
 
-Download both the source and thirdparty file. The directory mupdf
-should be put inside ximera/converter and thirdparty should be inside
-ximera/converter/mupdf
+The thirdparty should be inside ximera/converter/mupdf
 
 While in the mupdf folder, run these commands to compile it.
 
@@ -166,19 +169,18 @@ While in the mupdf folder, run these commands to compile it.
 If you get an error then perhaps the configuration file for MuPDF has
 misidentified the architecture of the computer. You can fix this by
 making the changes describe below. The changes to the makeconfig file
-are underlined. If you are working with a 32bit Mac, then
+are underlined. If you are working with a modern Mac, then
 
 `CFLAGS`
 and 
 
 `LDFLAGS`
 
-should be set to -m32:
+should be set to -m64 in the file named Makerule.
 
-You can find makeconfig file inside the mupdf folder with the name makerule
 
 ```
-# Mac OS X build depends on some thirdparty libs
+# Mac OS X build depends on some thirdprty libs
 ifeq "$(OS)" "Darwin"
 SYS_FREETYPE_INC := -I/usr/X11R6/include/freetype2
 CFLAGS += -I/usr/X11R6/include
