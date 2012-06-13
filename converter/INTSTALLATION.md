@@ -104,7 +104,7 @@ back and forth between these Ruby versions if you like.
 
    `rvm --default 1.9.3` 
 
-9. Finally, although not required, you'll likely want to generate the Ruby core    documentation by typing 
+9. Although not required, you'll likely want to generate the Ruby core    documentation by typing 
 
    `rvm docs generate` 
 
@@ -124,6 +124,14 @@ back and forth between these Ruby versions if you like.
    Alternatively, you can switch back to the default version (1.9.3)
    by typing rvm default And when a new version of Ruby comes along,
    you can easily install it alongside your existing versions.
+
+10. Finally, you will also need the following gems:
+
+`gem install pdf-reader`
+
+and 
+
+`gem install plist`
 
 
 Installing Pngcrush

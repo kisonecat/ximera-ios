@@ -39,7 +39,7 @@ preview_resolution_in_points_per_inch = desired_preview_width_in_pixels / width_
 input_directory = Dir.pwd
 
 pdfdraw = "mupdf/build/debug/mudraw"
-pngcrush = "pngcrush"
+pngcrush = "pngcrush/pngcrush"
 
 Dir.mktmpdir do |dir|
   `pdftk #{input_file} burst output #{dir}/page%03d.pdf`
