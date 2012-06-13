@@ -2,9 +2,17 @@
 ==========================================================
 
 You'll need to install the following:
+* Pdftk
 * Ruby 
 * Pngcrush 
 * MuPDF
+
+Installing Pdftk
+----------------
+
+Go to: 
+
+http://www.pdflabs.com/docs/install-pdftk/
 
 Installing Ruby
 ---------------
