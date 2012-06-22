@@ -4,15 +4,28 @@
 <array>
 	<dict>
 		<key>filename</key>
+		<string>triangle.html</string>
+		<key>page</key>
+		<integer>1</integer>
+		<key>rectangle</key>
+		<array>
+			<integer>33</integer>
+			<integer>670</integer>
+			<integer>686</integer>
+			<integer>650</integer>
+		</array>
+	</dict>
+	<dict>
+		<key>filename</key>
 		<string>llama.html</string>
 		<key>page</key>
 		<integer>1</integer>
 		<key>rectangle</key>
 		<array>
 			<integer>33</integer>
-			<integer>1477</integer>
+			<integer>1507</integer>
 			<integer>686</integer>
-			<integer>1197</integer>
+			<integer>1228</integer>
 		</array>
 	</dict>
 </array>

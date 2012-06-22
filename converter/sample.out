@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-\BOOKMARK [0][-]{chapter.1}{Let's begin with hello}{}
-\BOOKMARK [1][-]{section.1.1}{We just met}{chapter.1}
-\BOOKMARK [0][-]{chapter.2}{The plot thickens}{}
-\BOOKMARK [0][-]{chapter.3}{Goodbye}{}
-\BOOKMARK [1][-]{section.3.1}{I don't know why\203}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.1.1}{You say goodbye}{section.3.1}
-\BOOKMARK [2][-]{subsection.3.1.2}{I say hello}{section.3.1}
-=======
 \BOOKMARK [0][-]{chapter.1}{Let's begin with hello}{}% 1
 \BOOKMARK [1][-]{section.1.1}{We just met}{chapter.1}% 2
 \BOOKMARK [0][-]{chapter.2}{The plot thickens}{}% 3
@@ -14,4 +5,3 @@
 \BOOKMARK [1][-]{section.3.1}{I don't know why\203}{chapter.3}% 5
 \BOOKMARK [2][-]{subsection.3.1.1}{You say goodbye}{section.3.1}% 6
 \BOOKMARK [2][-]{subsection.3.1.2}{I say hello}{section.3.1}% 7
->>>>>>> 127a086201dfdf3074ab2f16d8345b0b69af8697

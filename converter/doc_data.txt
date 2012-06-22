@@ -1,13 +1,34 @@
 InfoKey: Producer
-InfoValue: pdfTeX-1.40.10
+InfoValue: pdfTeX-1.40.11
 InfoKey: Creator
 InfoValue: LaTeX with hyperref package
 InfoKey: ModDate
-InfoValue: D:20120202095104-05'00'
+InfoValue: D:20120622105306-04'00'
 InfoKey: PTEX.Fullbanner
-InfoValue: This is pdfTeX, Version 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian) kpathsea version 5.0.0
+InfoValue: This is pdfTeX, Version 3.1415926-1.40.11-2.2 (TeX Live 2010) kpathsea version 6.0.0
 InfoKey: CreationDate
-InfoValue: D:20120202095104-05'00'
-PdfID0: b08b19ba8eaff88badb38e5dde8ba7b3
-PdfID1: b08b19ba8eaff88badb38e5dde8ba7b3
+InfoValue: D:20120622105306-04'00'
+PdfID0: 3f1c80ec1fa3a32487d1c83ad27a9
+PdfID1: 3f1c80ec1fa3a32487d1c83ad27a9
 NumberOfPages: 4
+BookmarkTitle: Let's begin with hello
+BookmarkLevel: 1
+BookmarkPageNumber: 1
+BookmarkTitle: We just met
+BookmarkLevel: 2
+BookmarkPageNumber: 1
+BookmarkTitle: The plot thickens
+BookmarkLevel: 1
+BookmarkPageNumber: 2
+BookmarkTitle: Goodbye
+BookmarkLevel: 1
+BookmarkPageNumber: 3
+BookmarkTitle: I don't know why&#8230;
+BookmarkLevel: 2
+BookmarkPageNumber: 3
+BookmarkTitle: You say goodbye
+BookmarkLevel: 3
+BookmarkPageNumber: 3
+BookmarkTitle: I say hello
+BookmarkLevel: 3
+BookmarkPageNumber: 3
