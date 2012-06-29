@@ -13,4 +13,8 @@ and
 
 This should generate the documents: "tile#-#.png," "page#.png," and *.plist where the # designates a number and the * designates the name of your file. 
 
+You'll need to drop the tiles and the html into the correct place.
+
+Now the .js files need to be put into the Targets/Build phases area of XCode...
+
 More to come...
