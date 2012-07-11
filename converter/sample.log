@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  22 JUN 2012 10:53
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  11 JUL 2012 19:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -719,11 +719,11 @@ File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(18.06749pt, 362.79572pt, 39.74872pt)
+* h-part:(L,W,R)=(18.06749pt, 361.35pt, 39.74872pt)
 * v-part:(T,H,B)=(36.135pt, 36.135pt, 722.7pt)
-* \paperwidth=420.61192pt
+* \paperwidth=419.16621pt
 * \paperheight=794.96999pt
-* \textwidth=362.79572pt
+* \textwidth=361.35pt
 * \textheight=14226.37794pt
 * \oddsidemargin=-54.2025pt
 * \evensidemargin=-54.2025pt
@@ -778,14 +778,14 @@ Overfull \hbox (39.7487pt too wide) in paragraph at lines 24--24
  |[][]
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 (/usr/local/texlive/2010/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -793,30 +793,20 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (/usr/local/texlive/2010/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Overfull \hbox (11.62482pt too wide) in paragraph at lines 38--39
-[][] 
- []
-
-
-Overfull \hbox (1.6pt too wide) in paragraph at lines 65--65
+Overfull \hbox (1.6pt too wide) in paragraph at lines 66--66
  [] 
  []
 
 <transIdeaEg.pdf, id=52, 224.90114pt x 152.65538pt>
 File: transIdeaEg.pdf Graphic file (type pdf)
  <use transIdeaEg.pdf>
-Overfull \hbox (11.62482pt too wide) in paragraph at lines 71--72
-[][] 
- []
-
 [1
 
 
-{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./trans
-IdeaEg.pdf>]
+{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Chapter 2.
 
-Overfull \hbox (39.7487pt too wide) in paragraph at lines 122--122
+Overfull \hbox (39.7487pt too wide) in paragraph at lines 123--123
  |[][]
  []
 
@@ -825,42 +815,42 @@ Overfull \hbox (39.7487pt too wide) in paragraph at lines 122--122
 ]
 Chapter 3.
 
-Overfull \hbox (39.7487pt too wide) in paragraph at lines 244--244
+Overfull \hbox (39.7487pt too wide) in paragraph at lines 245--245
  |[][]
  []
 
 
-Overfull \hbox (39.7487pt too wide) in paragraph at lines 262--262
+Overfull \hbox (39.7487pt too wide) in paragraph at lines 263--263
  |[][]
  []
 
 
-Overfull \hbox (39.7487pt too wide) in paragraph at lines 277--277
+Overfull \hbox (39.7487pt too wide) in paragraph at lines 278--278
  |[][]
  []
 
 
-Overfull \hbox (39.7487pt too wide) in paragraph at lines 293--293
+Overfull \hbox (39.7487pt too wide) in paragraph at lines 294--294
  |[][]
  []
 
 [3
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 326.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
  [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 326.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
  (./sample.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 326.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
 Package rerunfilecheck Info: File `sample.out' has not changed.
 (rerunfilecheck)             Checksum: 90CE6ED3AC01255F0C84585FFA5DCE2C;406.
  ) 
 Here is how much of TeX's memory you used:
- 15954 strings out of 493747
- 285804 string characters out of 3143546
- 428337 words of memory out of 3000000
+ 15956 strings out of 493747
+ 285822 string characters out of 3143546
+ 429548 words of memory out of 3000000
  18825 multiletter control sequences out of 15000+200000
- 13149 words of font info for 68 fonts, out of 3000000 for 9000
+ 13198 words of font info for 69 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  54i,11n,75p,340b,699s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -871,10 +861,10 @@ sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
 cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/loc
 al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on sample.pdf (4 pages, 99387 bytes).
+Output written on sample.pdf (4 pages, 89253 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  18 named destinations out of 1000 (max. 500000)
  12458 words of extra memory for PDF output out of 14400 (max. 10000000)
 

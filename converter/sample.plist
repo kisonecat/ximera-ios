@@ -10,9 +10,9 @@
 		<key>rectangle</key>
 		<array>
 			<integer>33</integer>
-			<integer>670</integer>
-			<integer>686</integer>
-			<integer>650</integer>
+			<integer>1468</integer>
+			<integer>684</integer>
+			<integer>654</integer>
 		</array>
 	</dict>
 	<dict>
@@ -23,9 +23,9 @@
 		<key>rectangle</key>
 		<array>
 			<integer>33</integer>
-			<integer>1507</integer>
-			<integer>686</integer>
-			<integer>1228</integer>
+			<integer>1893</integer>
+			<integer>684</integer>
+			<integer>1614</integer>
 		</array>
 	</dict>
 </array>

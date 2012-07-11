@@ -12,3 +12,5 @@ and
 `ruby extract.rb sample.pdf`
 
 This should generate the documents: "tile#-#.png," "page#.png," and *.plist where the # designates a number and the * designates the name of your file. 
+
+More to come...

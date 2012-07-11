@@ -14,7 +14,7 @@
 %\RequirePackage{nopageno}
 \RequirePackage{microtype}
 
-\RequirePackage[paperwidth=5.8in,left=0.25in,right=.55in,top=.5in,bottom=10in]{geometry}
+\RequirePackage[paperwidth=5.82in,left=0.25in,right=.55in,top=.5in,bottom=10in]{geometry}
 
 \RequirePackage{hyperref} % necessary for pdf annotations
 
@@ -47,8 +47,8 @@
   }%
 \vspace{\interactivedepth}%
 \vspace{-\interactivedepth}%
-%\vspace{-\interactiveheight}%
-%\usebox{\interactivebox}%
+\vspace{-\interactiveheight}%
+\usebox{\interactivebox}%
 }
 % probably should get the height and depth correct...
 
