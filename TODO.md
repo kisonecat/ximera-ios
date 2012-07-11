@@ -16,6 +16,7 @@ Conversion:
 * ~~Wang tiles for background.... background that changes as you get deeper in to the text. See: http://en.wikipedia.org/wiki/Wang_tile~~
   ~~Or - two sets of tiles, a 768x2048 base layer and a 768x2304 (mostly transparent detail layer) this will allow for 18 pages of no reptition background~~
 * Backgroundslice.rb needs to be documented
+* Might want to use the fonts in Millennial (New Century Schoolbook) http://www.math.unl.edu/~shartke2/computer/latex/latex.php
 
 Content Navigator:
 ------------------
