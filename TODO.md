@@ -17,6 +17,8 @@ Conversion:
   ~~Or - two sets of tiles, a 768x2048 base layer and a 768x2304 (mostly transparent detail layer) this will allow for 18 pages of no reptition background~~
 * Backgroundslice.rb needs to be documented
 * Might want to use the fonts in Millennial (New Century Schoolbook) http://www.math.unl.edu/~shartke2/computer/latex/latex.php
+* background images from  http://oscargodson.github.com/EpicEditor/
+
 
 Content Navigator:
 ------------------
@@ -61,7 +63,9 @@ Interactives:
 * use processing.js http://processing.org
 * See: http://www.t2ah.com/
 * See: http://tympanus.net/Development/FlipboardPageLayout/?page=0
+* We could have a "I'm lost button" that could be attached to individual paragraphs, so if the student is reading a paragraph, and if something doesn't make sense, they could tag it.
 
 Contacts:
 ---------
 * http://www.saylor.org/ might be interested.
+* wizards of the coast might also be interested
