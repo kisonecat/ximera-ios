@@ -43,7 +43,7 @@ Content Navigator:
 * screen capture (selective, rather than whole-page)
 * flash cards for dfn's, named thms.
 * glossery for dfn's named thms.
-
+* check out icons from http://adamwhitcroft.com/batch/ all free, and cool
 
 Interactives:
 -------------
